@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jaden Terrance — eLearning Developer · Creative Designer</title>
+  <meta name="description" content="Portfolio of Jaden Terrance — elearning, accessibility, design systems, and creative ops." />
+  <style>
+/* Clean + Elegant (Black · Navy · Gold) with video hero 
+navy: #26495b 
+cream: #fef6e8
+gold: #fd993c
+white: #fefefa
+charcoal: #4c4c4c
+*/
+    :root{
+      --bg:#fefefa;           /* near-black */
+      --panel:#fef6e8;        /* card bg */
+      --ink:#26495b;          /* primary text */
+      --muted:#26495b;        /* secondary text */
+      --navy:#26495b;        /* accent navy */
+      --gold:#fd993c;         /* accent gold */
+      --line:#4c4c4c;         /* subtle border */
+      --radius:18px; 
+      --shadow:0 8px 24px rgba(0,0,0,.35);
+      --focus:0 0 0 3px rgba(214,179,90,.45);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f7fb; --panel:#ffffff; --ink:#101216; --muted:#5a6270; --navy:#198f43; --gold:#a8832a; --line:#e7e9ee; }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: var(--bg);
+      color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--gold); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px}
+
+    /* Header */
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 0}
+    .brand{display:flex; align-items:center; gap:14px}
+    .logo{width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--gold)); box-shadow:var(--shadow)}
+    h1{font-size:clamp(26px,3vw,34px); margin:0; color:var(--navy); letter-spacing:.2px}
+    .tag{color:var(--muted); font-size:14px}
+    nav{display:flex; gap:14px; flex-wrap:wrap}
+    .chipnav{padding:8px 12px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
+    .chipnav:hover{border-color:var(--gold); color:var(--ink)}
+
+    /* Hero */
+    .hero{margin:26px 0 10px; display:grid; grid-template-columns: 1.15fr .85fr; gap:18px}
+    .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .hero .left{padding:26px}
+    .hero h2{font-size:clamp(28px,4vw,44px); line-height:1.15; margin:0 0 12px; color:var(--navy)}
+    .hero p{color:var(--muted); margin:0 0 16px; max-width:70ch}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
+    .cta{display:flex; gap:12px; margin-top:18px}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:#141719; color:#fff; font-weight:600; transition:transform .12s ease, box-shadow .12s ease}
+    .btn.primary{background:linear-gradient(135deg,var(--navy),var(--gold)); border:none}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:focus-visible{outline:none; box-shadow:var(--focus)}
+
+    /* Video pane */
+    .hero .right{display:grid; place-items:center; overflow:hidden}
+    .video-wrap{position:relative; width:100%; height:100%}
+    .video-wrap::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.15)); pointer-events:none}
+    .hero video{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* Sections */
+    .section{margin:38px 0}
+    .section h3{font-size:22px; margin:0 0 14px; color:var(--navy)}
+
+    /* Filters */
+    .controls{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
+    .pill{padding:6px 10px; border-radius:999px; border:1px solid var(--line); cursor:pointer; user-select:none; color:var(--muted); background:transparent}
+    .pill[aria-selected="true"]{background:linear-gradient(135deg, rgba(22,163,74,.18), rgba(214,179,90,.18)); color:var(--ink); border-color:transparent}
+    .pill:focus-visible{outline:none; box-shadow:var(--focus)}
+
+    /* Work grid */
+    .grid{display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:14px; align-items:start; /* prevents odd stretching */}
+    /* Tiles no longer need to span columns */
+    .tile{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .tile:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.45)}
+    .thumb{aspect-ratio:16/10; background:#0f1113; display:block; width:100%; object-fit:cover}
+    .tile .meta{padding:14px}
+    .meta .title{font-weight:700; color:var(--navy)}
+    .meta .caps{text-transform:uppercase; letter-spacing:.08em; font-size:11px; color:var(--gold)}
+    .desc{color:var(--muted)}
+    /* Mobile: 1 column */
+    @media (max-width: 960px){
+      .hero{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr;}
+      .about{grid-template-columns: 1fr}
+    }
+    /* Modal */
+    dialog{border:none; border-radius:18px; width:min(900px, 96vw); box-shadow:var(--shadow); background:var(--panel); color:var(--ink)}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    .modal-head{display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1px solid var(--line)}
+    .modal-body{padding:18px}
+    .modal-body img{max-width:100%; border-radius:12px}
+
+    /* About */
+    .about{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
+    .about .card{padding:18px}
+
+    /* Contact */
+    .contact{display:flex; flex-wrap:wrap; gap:12px}
+    .contact a{padding:12px 14px; border-radius:12px; border:1px solid var(--line); color:var(--gold)}
+    .contact a:hover{border-color:var(--gold)}
+
+    footer{margin:32px 0 54px; color:var(--muted); font-size:14px; text-align:center}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns: 1fr}
+      .grid .tile{grid-column: span 12}
+      .about{grid-template-columns: 1fr}
+    }
+
+        /* ===== Resume section ===== */
+    .resume{margin:38px 0}
+    .resume-grid{
+      display:grid; grid-template-columns: 1fr 1fr; gap:18px;
+    }
+    .resume .card{padding:18px}
+    .resume h4{
+      margin:0 0 12px; font-size:18px; letter-spacing:.2px; color:var(--navy);
+      display:flex; align-items:center; gap:10px;
+    }
+    .resume .item{margin:0 0 14px}
+    .resume .item .title{font-weight:700}
+    .resume .item .meta { 
+      color: #fefefa; 
+      opacity: .85;        /* optional softness */
+      font-size: 14px;
+    }
+    /* little badge bullets */
+    .badges{display:grid; grid-template-columns: 1fr; gap:10px; margin-top:6px}
+    .badge{
+      display:flex; align-items:center; gap:10px;
+    }
+    .badge .dot{
+      width:12px; height:12px; border-radius:50%; 
+      background: radial-gradient(circle at 30% 30%, var(--gold), var(--navy));
+      box-shadow:0 0 0 1px var(--line) inset;
+    }
+    
+    /* hobbies row */
+    .hobbies{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px}
+    .hobby{
+      display:flex; align-items:center; gap:10px; border:1px solid var(--line);
+      padding:10px 12px; border-radius:12px; background:var(--panel);
+    }
+    
+    /* tiny inline icons */
+    .icon{width:18px; height:18px; display:inline-block; vertical-align:middle; color:var(--navy)}
+    .icon path{stroke:currentColor}
+    
+    /* responsive */
+    @media (max-width:960px){
+      .resume-grid{grid-template-columns:1fr}
+    }
+
+    /* ===== Resume dark card variant (polished) ===== */
+    .resume .card {
+      background: #26495b;          /* deep navy */
+      color: #fefefa;               /* main text color */
+      border: none;
+      box-shadow: 0 6px 16px rgba(0,0,0,.4);
+    }
+    
+    /* text colors inside cards */
+    .resume h4,
+    .resume .title,
+    .resume .badge,
+    .resume .meta,
+    .resume .hobby {
+      color: #fefefa;
+    }
+    /* Hanging indent for skills list */
+    .resume .badges { padding-left: 28px; }
+    .resume .badge  { padding-left: 0; }
+    .resume .hobbies { padding-left: 28px; }
+    .resume .meta { padding-left: 28px; }
+    .resume .title { padding-left: 28px; }
+
+    /* icons inside resume section */
+    .resume .icon path {
+      stroke: #fefefa;
+    }
+    
+    /* remove boxes from badges, make them simple list items */
+    .resume .badges {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .resume .badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    
+    /* bullet dots: subtle gold accent */
+    .resume .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fd993c, #fefefa);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.2) inset;
+    }
+    
+    /* hobbies: keep softer chips for visual separation */
+    .resume .hobby {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      color: #fefefa;
+    }
+    .resume .hobby:hover {
+      background: rgba(255,255,255,.15);
+      transition: background .2s ease;
+    }
+    
+    /* hover lift for cards */
+    .resume .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.55);
+      transition: all .25s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Jaden Terrance</h1>
+          <div class="tag">eLearning · UX for Learning · Accessibility · Creative Ops</div>
+        </div>
+      </div>
+      <nav>
+        <a class="chipnav" href="#resume">Resume</a>
+        <a class="chipnav" href="#work">Work</a>
+        <a class="chipnav" href="#about">About</a>
+        <a class="chipnav" href="#contact">Contact</a>
+        <a href="mailto:jaden_terrance@outlook.com" class="btn">Email</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="left card">
+        <h2>Turning complex topics into clear, accessible learning.</h2>
+        <p>I’m Jaden, an eLearning developer and creative designer with 10+ years of experience translating messy, high‑stakes content into engaging, compliant training. I build mobile‑first Storyline/Rise courses, interaction libraries, and tidy ops so teams can ship faster with less stress.</p>
+        <div class="chips">
+          <span class="chip"><strong>Storyline & Rise</strong> · rapid, mobile‑first</span>
+          <span class="chip"><strong>Accessibility</strong> · 508/WCAG</span>
+          <span class="chip"><strong>Instructional Design</strong> · branching</span>
+          <span class="chip"><strong>UX Editing</strong> · clarity + tone</span>
+          <span class="chip"><strong>Ops</strong> · templates & pipelines</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#work">View selected work</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="right card">
+        <div class="video-wrap">
+          <!-- Drop in your clip; add a poster image if you like -->
+          <video autoplay muted loop playsinline poster="preview.jpg">
+            <source src="your-visuals.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <h3>Selected Work</h3>
+      <div class="controls" id="filters" role="tablist" aria-label="Filter projects by type">
+        <button class="pill" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="pill" data-filter="design" role="tab">Design</button>
+        <button class="pill" data-filter="video" role="tab">Video</button>
+        <button class="pill" data-filter="writing" role="tab">Writing</button>
+        <button class="pill" data-filter="ops" role="tab">Ops</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <article class="tile" data-tags="design writing" data-id="msft">
+          <img class="thumb" loading="lazy" src="https://picsum.photos/800/500?random=21" alt="Microsoft chat-based simulation prototype" />
+          <div class="meta">
+            <div class="caps">Prototype · Storyline + JS</div>
+            <div class="title">Microsoft — Executive Chat Simulation</div>
+            <p class="desc">Mobile‑first, DEI‑conscious eLearning prototype with branching paths and custom JS.</p>
+            <a href="#" class="btn" data-open="msft">View case</a>
+          </div>
+        </article>
+
+        <article class="tile" data-tags="ops writing" data-id="paylocity">
+          <img class="thumb" loading="lazy" src="https://picsum.photos/800/500?random=22" alt="Paylocity taxonomy overhaul" />
+          <div class="meta">
+            <div class="caps">Ops · Content Systems</div>
+            <div class="title">Paylocity — 700+ Course Taxonomy & LMS Cleanup</div>
+            <p class="desc">Built tagging hierarchy; reviewed 700+ Rise courses to enable reuse & faster updates.</p>
+            <a href="#" class="btn" data-open="paylocity">View case</a>
+          </div>
+        </article>
+
+        <article class="tile" data-tags="design" data-id="faa">
+          <img class="thumb" loading="lazy" src="https://picsum.photos/800/500?random=23" alt="FAA courseware redesign" />
+          <div class="meta">
+            <div class="caps">Storyline · Templates</div>
+            <div class="title">Federal Aviation Administration — Courseware Redesign</div>
+            <p class="desc">Rebuilt legacy training; authored 54+ reusable interactions and 22 templates.</p>
+            <a href="#" class="btn" data-open="faa">View case</a>
+          </div>
+        </article>
+
+        <article class="tile" data-tags="design ops" data-id="leidos">
+          <img class="thumb" loading="lazy" src="https://picsum.photos/800/500?random=24" alt="Leidos accessibility guides" />
+          <div class="meta">
+            <div class="caps">Accessibility · 508</div>
+            <div class="title">Leidos — 508 Training & Reference</div>
+            <p class="desc">Practical checklists and team training for consistent WCAG/508 compliance.</p>
+            <a href="#" class="btn" data-open="leidos">View case</a>
+          </div>
+        </article>
+
+        <article class="tile" data-tags="design" data-id="relias">
+          <img class="thumb" loading="lazy" src="https://picsum.photos/800/500?random=25" alt="Relias medical simulations" />
+          <div class="meta">
+            <div class="caps">Healthcare · Simulation</div>
+            <div class="title">Relias — Clinician Scenarios & 360° Training</div>
+            <p class="desc">Emotionally intelligent, medically accurate modules for hospice & clinical teams.</p>
+            <a href="#" class="btn" data-open="relias">View case</a>
+          </div>
+        </article>
+
+        <article class="tile" data-tags="design" data-id="dliflc">
+          <img class="thumb" loading="lazy" src="https://picsum.photos/800/500?random=26" alt="DLIFLC multilingual secure modules" />
+          <div class="meta">
+            <div class="caps">Gov · Multilingual</div>
+            <div class="title">DLIFLC — Secure Multilingual Courseware</div>
+            <p class="desc">SCORM‑compliant Captivate framework delivered in Chinese, Korean, and Spanish.</p>
+            <a href="#" class="btn" data-open="dliflc">View case</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="card">
+        <h3>About</h3>
+        <p>eLearning developer + creative designer focused on accessibility, clarity, and repeatable quality. I love turning complex, sensitive topics into humane learning—then packaging the workflow so the team can do it again faster.</p>
+        <ul>
+          <li>Tools: Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Notion, Google Suite</li>
+          <li>Strengths: 508/WCAG, mobile‑first patterns, branching, content systems, crisp editing</li>
+          <li>Industries: Government, Healthcare, HR/Payroll, SaaS, Creator Economy</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What I’m looking for</h3>
+        <p>Contract or part‑time roles where I can own a slice of course design, accessibility, or content ops and deliver visible improvements quickly.</p>
+        <ul>
+          <li>Design/rewrite key modules in Storyline or Rise</li>
+          <li>Build template + interaction libraries for teams</li>
+          <li>Create accessibility guides/checklists & train devs</li>
+          <li>Stand up simple taxonomies and content trackers</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h3>Contact</h3>
+      <div class="contact">
+        <a href="mailto:jaden_terrance@outlook.com">Email</a>
+        <a href="#" aria-disabled="true">TikTok</a>
+        <a href="#" aria-disabled="true">YouTube</a>
+        <a href="#" aria-disabled="true">Twitch</a>
+        <a href="#" aria-disabled="true">Pinterest</a>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Jaden Terrance — Brussels · Available for remote/flexible roles</footer>
+  </div>
+
+  <!-- Case modal -->
+  <dialog id="caseModal" aria-modal="true">
+    <div class="modal-head">
+      <strong id="caseTitle">Case Study</strong>
+      <button class="btn" id="closeModal" aria-label="Close">Close</button>
+    </div>
+    <div class="modal-body" id="caseBody"></div>
+  </dialog>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Filters
+    const pills=[...document.querySelectorAll('.pill')];
+    const tiles=[...document.querySelectorAll('.tile')];
+    pills.forEach(p=>p.addEventListener('click',()=>{
+      pills.forEach(x=>x.setAttribute('aria-selected','false'));
+      p.setAttribute('aria-selected','true');
+      const f=p.dataset.filter;
+      tiles.forEach(tile=>{
+        const show=f==='all'||tile.dataset.tags.includes(f);
+        tile.style.display=show?'flex':'none';
+      });
+    }));
+
+    // Cases
+    const cases={
+      msft:{title:'Microsoft — Executive Chat Simulation', body:`<p>Built a mobile‑first, chat‑style prototype for executive review with a DEI‑conscious approach. Implemented branching dialogue, input fields, and custom JavaScript within Storyline to simulate an SMS experience on phone.</p>
+      <ul><li>Storyline + custom JS</li><li>Branching conversation paths</li><li>Executive‑ready demo for CoPilot‑aligned learning</li></ul>
+      <img src="https://picsum.photos/1200/700?random=31" alt="Microsoft chat simulation" />`},
+      paylocity:{title:'Paylocity — 700+ Course Taxonomy & LMS Cleanup', body:`<p>Reviewed and tagged 700+ Rise courses; created a taxonomy and update workflow to reduce duplication and speed annual compliance refreshes. Authored/edited missing courses to close gaps.</p>
+      <ul><li>Content system & metadata</li><li>Rise production & edits</li><li>Searchability and reuse improved</li></ul>
+      <img src="https://picsum.photos/1200/700?random=32" alt="Paylocity ops" />`},
+      faa:{title:'FAA — Courseware Redesign', body:`<p>Rebuilt legacy training into modern Storyline/Rise with a cohesive GUI and reusable interaction kit.</p>
+      <ul><li>54+ interactions · 22 templates</li><li>Higher learner ratings</li><li>Faster authoring across teams</li></ul>
+      <img src="https://picsum.photos/1200/700?random=33" alt="FAA courseware" />`},
+      leidos:{title:'Leidos — 508 Training & Reference', body:`<p>Created pragmatic 508/WCAG checklists and coached teams on screen reader flow, focus order, and contrast standards.</p>
+      <ul><li>Developer‑friendly handouts</li><li>Template updates for compliance</li><li>Culture shift toward accessible defaults</li></ul>
+      <img src="https://picsum.photos/1200/700?random=34" alt="Leidos accessibility" />`},
+      relias:{title:'Relias — Clinician Scenarios & 360° Training', body:`<p>Built emotionally intelligent, medically accurate simulations for hospice, obstetrics, and emergency care teams.</p>
+      <ul><li>Storyline/Rise modules</li><li>Decision trees and 360° scenes</li><li>SME collaboration for accuracy</li></ul>
+      <img src="https://picsum.photos/1200/700?random=35" alt="Relias simulations" />`},
+      dliflc:{title:'DLIFLC — Secure Multilingual Courseware', body:`<p>Developed a code‑driven Captivate framework and delivered SCORM‑compliant modules in Chinese, Korean, and Spanish for secure environments.</p>
+      <ul><li>HTML/CSS/JS interactions</li><li>SCORM packaging</li><li>Localization workflow</li></ul>
+      <img src="https://picsum.photos/1200/700?random=36" alt="DLIFLC modules" />`}
+    };
+    const modal=document.getElementById('caseModal');
+    const caseTitle=document.getElementById('caseTitle');
+    const caseBody=document.getElementById('caseBody');
+    document.querySelectorAll('[data-open]').forEach(btn=>{
+      btn.addEventListener('click',e=>{
+        e.preventDefault(); const id=btn.dataset.open; const c=cases[id];
+        caseTitle.textContent=c.title; caseBody.innerHTML=c.body; modal.showModal();
+      });
+    });
+    document.getElementById('closeModal').addEventListener('click',()=>modal.close());
+  </script>
+</body>
+</html>

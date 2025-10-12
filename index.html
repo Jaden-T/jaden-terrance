@@ -1,31 +1,26 @@
-<!doctype html>
+<!doctype html> 
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jaden Terrance — eLearning Developer · Creative Designer</title>
 <meta name="description" content="Portfolio of Jaden Terrance — elearning, accessibility, design systems, and creative ops." />
+
 <style>
-/* ===== Palette =====
-navy: #26495b
-cream: #fef6e8
-gold:  #fd993c
-white: #fefefa
-charcoal: #4c4c4c
-black-ish text: #101216
-*/
+/* ===== Palette ===== */
 :root{
   --bg:#fefefa;
   --panel:#fef6e8;
-  --ink:#101216;   /* body text = black */
-  --muted:#26495b; /* secondary text tone */
-  --navy:#26495b;  /* headings */
+  --ink:#101216;
+  --muted:#26495b;
+  --navy:#26495b;
   --gold:#fd993c;
   --line:#4c4c4c;
   --radius:18px;
   --shadow:0 8px 24px rgba(0,0,0,.35);
   --focus:0 0 0 3px rgba(214,179,90,.45);
 }
+
 *{box-sizing:border-box}
 html,body{margin:0}
 body{
@@ -47,12 +42,11 @@ section{padding:80px 0}
 section.cream{background:var(--panel)}
 section.dark{background:var(--navy); color:#fefefa}
 section.gold{background:var(--gold); color:#141719}
-.split{display:grid; grid-template-columns:1fr 1fr; min-height:520px; width: 100%;}
-.split .left{min-height:320px}
-.split .right{display: flex; align-items: stretch;}
-.split .media{width: 100%; height: 100%; object-fit: cover; margin: 0; display: block;}
+.split{display:grid; grid-template-columns:1fr 1fr; min-height:520px; width:100%;}
+.split .right{display:flex; align-items:stretch;}
+.split .media{width:100%; height:100%; object-fit:cover; margin:0; display:block;}
 
-/* ===== Header (sticky optional) ===== */
+/* ===== Header (with hamburger) ===== */
 header{position:sticky; top:0; z-index:10; background:rgba(254,246,232,.9); backdrop-filter:saturate(140%) blur(6px); border-bottom:1px solid rgba(0,0,0,.06)}
 header .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
 .brand{display:flex; gap:12px; align-items:center}
@@ -65,7 +59,36 @@ nav{display:flex; gap:12px; flex-wrap:wrap}
 .btn:hover{transform:translateY(-1px)}
 .btn:focus-visible{outline:none; box-shadow:var(--focus)}
 
-/* ===== HERO – full-width video banner on cream ===== */
+/* ===== Hamburger menu ===== */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--navy);
+  cursor: pointer;
+  line-height: 1;
+}
+@media (max-width: 960px) {
+  .hamburger { display: block; }
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 72px;
+    right: 24px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  }
+  nav.show { display: flex; animation: fadeIn .25s ease; }
+  @keyframes fadeIn { from {opacity:0; transform:translateY(-6px);} to {opacity:1; transform:none;} }
+}
+
+/* ===== HERO ===== */
 .hero{position:relative; overflow:hidden; padding:0}
 .hero .video-bg{position:relative; height:56vw; max-height:560px; min-height:360px}
 .hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
@@ -75,76 +98,34 @@ nav{display:flex; gap:12px; flex-wrap:wrap}
 .hero p{max-width:72ch; margin:10px auto 18px; color:var(--ink)}
 .hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
 
-/* ===== Work grid ===== */
-.section h3{font-size:22px; margin-bottom:14px}
-.controls{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
-.pill{padding:6px 10px; border-radius:999px; border:1px solid var(--line); cursor:pointer; user-select:none; color:var(--muted); background:transparent}
-.pill[aria-selected="true"]{background:linear-gradient(135deg, rgba(22,163,74,.18), rgba(214,179,90,.18)); color:var(--ink); border-color:transparent}
-.grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start}
-.tile{background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .15s ease, box-shadow .15s ease; background:var(--panel)}
-.tile:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.45)}
-.thumb{aspect-ratio:16/10; background:#0f1113; width:100%; object-fit:cover}
-.tile .meta{padding:14px}
-.meta .title{font-weight:700; color:var(--navy)}
-.meta .caps{text-transform:uppercase; letter-spacing:.08em; font-size:11px; color:var(--gold)}
-.desc{color:var(--muted)}
-
-/* ===== Resume cards (dark band) ===== */
+/* ===== Resume cards ===== */
 .resume-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
 .resume .card {
-  background: rgba(38, 73, 91, 0.85);
+  background: rgba(38,73,91,0.85);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); /* for Safari */
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,0.1);
   color: #fefefa;
   box-shadow: 0 6px 18px rgba(0,0,0,.45);
 }
-.resume h4{margin:0 0 12px; font-size:18px; letter-spacing:.2px; color:#fefefa; display:flex; align-items:center; gap:10px}
-.resume .item{margin:0 0 14px}
-.resume .item .title{font-weight:700}
-.resume .item .meta{opacity:.9; font-size:14px}
-.badges{display:grid; grid-template-columns:1fr; gap:6px; margin-top:6px}
-.badge{display:flex; align-items:center; gap:10px}
-.badge .dot{width:10px; height:10px; border-radius:50%; background:radial-gradient(circle at 30% 30%, #fd993c, #fefefa); box-shadow:0 0 0 1px rgba(255,255,255,.2) inset}
-.hobbies{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px}
-.hobby{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#fefefa; padding:10px 12px; border-radius:12px}
-.hobby:hover{background:rgba(255,255,255,.15); transition:background .2s ease}
-.icon{width:18px; height:18px; display:inline-block; vertical-align:middle}
-.resume .icon path{stroke:#fefefa; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
 
-/* ===== Timeline split (gold) ===== */
-.timeline-wrap{padding:0px}
+/* ===== Timeline ===== */
+#timeline { background:#fff; }
 .timeline{position:relative; padding-left:55px}
-.timeline::before{content:""; position:absolute; top:0; bottom:0; left:18px; width:3px; background:#fd993c; border-radius:2px} /* slightly darker gold for contrast */
-.timeline-item{position:relative; margin-bottom:26px; padding-left:14px}
+.timeline::before{content:""; position:absolute; top:0; bottom:0; left:18px; width:3px; background:#fd993c; border-radius:2px}
+.timeline-item{position:relative; margin-bottom:26px; padding-left:14px}
 .timeline-item h4{margin:0; font-size:18px; color:#1f3b49; font-weight:700; line-height:1.4}
 .timeline-item p{margin:4px 0 0; color:#1f1f1f; font-size:15px; line-height:1.5}
-#timeline { background:#fff; }
 
-/* ===== About & Contact ===== */
-.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-.card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
-.contact{display:flex; flex-wrap:wrap; gap:12px}
-.contact a{padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.35); color:#fefefa}
-.contact a:hover{border-color:#fff}
-
-/* ===== Modal ===== */
-dialog{border:none; border-radius:18px; width:min(900px,96vw); box-shadow:var(--shadow); background:var(--panel); color:var(--ink)}
-dialog::backdrop{background:rgba(0,0,0,.6)}
-.modal-head{display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1px solid var(--line)}
-.modal-body{padding:18px}
-.modal-body img{max-width:100%; border-radius:12px}
-
-/* ===== Responsive ===== */
+/* ===== Responsive layout ===== */
 @media (max-width: 960px){
   .split{grid-template-columns:1fr}
-  .resume-grid{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr}
-  header .bar{flex-direction:column; align-items:flex-start}
+  .resume-grid,.about-grid,.grid{grid-template-columns:1fr}
+  header .bar{flex-direction:row; justify-content:space-between; align-items:center;}
 }
 </style>
 </head>
+
 <body>
 
 <!-- ===== Header ===== -->
@@ -157,7 +138,12 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
         <div class="tag" style="color:var(--muted); font-size:14px">eLearning · UX for Learning · Accessibility · Creative Ops</div>
       </div>
     </div>
-    <nav>
+
+    <!-- Hamburger button -->
+    <button class="hamburger" aria-label="Toggle menu">☰</button>
+
+    <!-- Nav links -->
+    <nav id="navMenu">
       <a class="chipnav" href="#resume">Resume</a>
       <a class="chipnav" href="#work">Work</a>
       <a class="chipnav" href="#timeline">Timeline</a>
@@ -168,7 +154,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   </div>
 </header>
 
-<!-- ===== HERO (cream + full-width video) ===== -->
+<!-- ===== Hero ===== -->
 <section class="hero full-bleed cream">
   <div class="video-bg">
     <video autoplay muted loop playsinline poster="preview.jpg">
@@ -178,7 +164,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   </div>
   <div class="hero-content container">
     <h2>Turning complex topics into clear, accessible learning.</h2>
-    <p>I’m Jaden, an eLearning developer and creative designer with 10+ years of experience translating messy, high-stakes content into engaging, compliant training. I build mobile-first Storyline/Rise courses, interaction libraries, and tidy ops so teams can ship faster with less stress.</p>
+    <p>I’m Jaden, an eLearning developer and creative designer with 10+ years of experience translating messy, high-stakes content into engaging, compliant training.</p>
     <div class="cta">
       <a class="btn primary" href="#work">View selected work</a>
       <a class="btn" href="#contact">Get in touch</a>
@@ -530,6 +516,14 @@ document.querySelectorAll('[data-open]').forEach(btn=>{
   });
 });
 document.getElementById('closeModal').addEventListener('click',()=>modal.close());
+<script>
+/* ===== Hamburger menu toggle ===== */
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.getElementById('navMenu');
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+  hamburger.textContent = navMenu.classList.contains('show') ? '✖' : '☰';
+});
 </script>
 </body>
 </html>

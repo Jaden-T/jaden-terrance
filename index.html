@@ -251,7 +251,21 @@ charcoal: #4c4c4c
 .timeline-item {
   position: relative;
   margin-bottom: 26px;
-  padding-left: 10px;
+  padding-left: 24px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 18px;
+  bottom: -26px; /* connects to the next dot */
+  width: 2px;
+  background: var(--gold);
+}
+
+.timeline-item:last-child::before {
+  display: none; /* stop line after the last item */
 }
 
 .timeline-item .dot {
@@ -687,6 +701,7 @@ const cases = {
 </body>
 
 </html>
+
 
 
 

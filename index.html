@@ -1,514 +1,238 @@
-<!doctype html>
+<!doctype html> 
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jaden Terrance — eLearning Developer · Creative Designer</title>
-  <meta name="description" content="Portfolio of Jaden Terrance — elearning, accessibility, design systems, and creative ops." />
-  <style>
-/* Clean + Elegant (Black · Navy · Gold) with video hero 
-navy: #26495b 
-cream: #fef6e8
-gold: #fd993c
-white: #fefefa
-charcoal: #4c4c4c
-*/
-    :root{
-      --bg:#fefefa;           /* near-black */
-      --panel:#fef6e8;        /* card bg */
-      --ink:#26495b;          /* primary text */
-      --muted:#26495b;        /* secondary text */
-      --navy:#26495b;        /* accent navy */
-      --gold:#fd993c;         /* accent gold */
-      --line:#4c4c4c;         /* subtle border */
-      --radius:18px; 
-      --shadow:0 8px 24px rgba(0,0,0,.35);
-      --focus:0 0 0 3px rgba(214,179,90,.45);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f6f7fb; --panel:#ffffff; --ink:#101216; --muted:#5a6270; --navy:#198f43; --gold:#a8832a; --line:#e7e9ee; }
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--bg);
-      color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:var(--gold); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jaden Terrance — eLearning Developer · Creative Designer</title>
+<meta name="description" content="Portfolio of Jaden Terrance — elearning, accessibility, design systems, and creative ops." />
 
-    /* Header */
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 0}
-    .brand{display:flex; align-items:center; gap:14px}
-
-    h1{font-size:clamp(26px,3vw,34px); margin:0; color:var(--navy); letter-spacing:.2px}
-    .tag{color:var(--muted); font-size:14px}
-    nav{display:flex; gap:14px; flex-wrap:wrap}
-    .chipnav{padding:8px 12px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
-    .chipnav:hover{border-color:var(--gold); color:var(--ink)}
-
-    /* Hero */
-    .hero{margin:26px 0 10px; display:grid; grid-template-columns: 1.15fr .85fr; gap:18px}
-    .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
-    .hero .left{padding:26px}
-    .hero h2{font-size:clamp(28px,4vw,44px); line-height:1.15; margin:0 0 12px; color:var(--navy)}
-    .hero p{color:var(--muted); margin:0 0 16px; max-width:70ch}
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
-    .cta{display:flex; gap:12px; margin-top:18px}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:#141719; color:#fff; font-weight:600; transition:transform .12s ease, box-shadow .12s ease}
-    .btn.primary{background:linear-gradient(135deg,var(--navy),var(--gold)); border:none}
-    .btn:hover{transform:translateY(-1px)}
-    .btn:focus-visible{outline:none; box-shadow:var(--focus)}
-
-    /* Video pane */
-    .hero .right{display:grid; place-items:center; overflow:hidden}
-    .video-wrap{position:relative; width:100%; height:100%}
-    .video-wrap::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.15)); pointer-events:none}
-    .hero video{width:100%; height:100%; object-fit:cover; display:block}
-
-    /* Sections */
-    .section{margin:38px 0}
-    .section h3{font-size:22px; margin:0 0 14px; color:var(--navy)}
-
-    /* Filters */
-    .controls{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
-    .pill{padding:6px 10px; border-radius:999px; border:1px solid var(--line); cursor:pointer; user-select:none; color:var(--muted); background:transparent}
-    .pill[aria-selected="true"]{background:linear-gradient(135deg, rgba(22,163,74,.18), rgba(214,179,90,.18)); color:var(--ink); border-color:transparent}
-    .pill:focus-visible{outline:none; box-shadow:var(--focus)}
-
-    /* Work grid */
-    .grid{display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:14px; align-items:start; /* prevents odd stretching */}
-    /* Tiles no longer need to span columns */
-    .tile{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .tile:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.45)}
-    .thumb{aspect-ratio:16/10; background:#0f1113; display:block; width:100%; object-fit:cover}
-    .tile .meta{padding:14px}
-    .meta .title{font-weight:700; color:var(--navy)}
-    .meta .caps{text-transform:uppercase; letter-spacing:.08em; font-size:11px; color:var(--gold)}
-    .desc{color:var(--muted)}
-    /* Mobile: 1 column */
-    @media (max-width: 960px){
-      .hero{grid-template-columns: 1fr}
-      .grid{grid-template-columns: 1fr;}
-      .about{grid-template-columns: 1fr}
-    }
-    /* Modal */
-    dialog{border:none; border-radius:18px; width:min(900px, 96vw); box-shadow:var(--shadow); background:var(--panel); color:var(--ink)}
-    dialog::backdrop{background:rgba(0,0,0,.6)}
-    .modal-head{display:flex; justify-content:space-between; align-items:center; padding:14px 18px; border-bottom:1px solid var(--line)}
-    .modal-body{padding:18px}
-    .modal-body img{max-width:100%; border-radius:12px}
-
-    /* About */
-    .about{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
-    .about .card{padding:18px}
-
-    /* Contact */
-    .contact{display:flex; flex-wrap:wrap; gap:12px}
-    .contact a{padding:12px 14px; border-radius:12px; border:1px solid var(--line); color:var(--gold)}
-    .contact a:hover{border-color:var(--gold)}
-
-    footer{margin:32px 0 54px; color:var(--muted); font-size:14px; text-align:center}
-
-    @media (max-width: 960px){
-      .hero{grid-template-columns: 1fr}
-      .grid .tile{grid-column: span 12}
-      .about{grid-template-columns: 1fr}
-    }
-
-        /* ===== Resume section ===== */
-    .resume{margin:38px 0}
-    .resume-grid{
-      display:grid; grid-template-columns: 1fr 1fr; gap:18px;
-    }
-    .resume .card{padding:18px}
-    .resume h4{
-      margin:0 0 12px; font-size:18px; letter-spacing:.2px; color:var(--navy);
-      display:flex; align-items:center; gap:10px;
-    }
-    .resume .item{margin:0 0 14px}
-    .resume .item .title{font-weight:700}
-    .resume .item .meta { 
-      color: #fefefa; 
-      opacity: .85;        /* optional softness */
-      font-size: 14px;
-    }
-    /* little badge bullets */
-    .badges{display:grid; grid-template-columns: 1fr; gap:10px; margin-top:6px}
-    .badge{
-      display:flex; align-items:center; gap:10px;
-    }
-    .badge .dot{
-      width:12px; height:12px; border-radius:50%; 
-      background: radial-gradient(circle at 30% 30%, var(--gold), var(--navy));
-      box-shadow:0 0 0 1px var(--line) inset;
-    }
-    
-    /* hobbies row */
-    .hobbies{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px}
-    .hobby{
-      display:flex; align-items:center; gap:10px; border:1px solid var(--line);
-      padding:10px 12px; border-radius:12px; background:var(--panel);
-    }
-    
-    /* tiny inline icons */
-    .icon{width:18px; height:18px; display:inline-block; vertical-align:middle; color:var(--navy)}
-    .icon path{stroke:currentColor}
-    
-    /* responsive */
-    @media (max-width:960px){
-      .resume-grid{grid-template-columns:1fr}
-    }
-
-    /* ===== Resume dark card variant (polished) ===== */
-    .resume .card {
-      background: #26495b;          /* deep navy */
-      color: #fefefa;               /* main text color */
-      border: none;
-      box-shadow: 0 6px 16px rgba(0,0,0,.4);
-    }
-    
-    /* text colors inside cards */
-    .resume h4,
-    .resume .title,
-    .resume .badge,
-    .resume .meta,
-    .resume .hobby {
-      color: #fefefa;
-    }
-    /* Hanging indent for skills list */
-    .resume .badges { padding-left: 28px; }
-    .resume .badge  { padding-left: 0; }
-    .resume .hobbies { padding-left: 28px; }
-    .resume .meta { padding-left: 28px; }
-    .resume .title { padding-left: 28px; }
-
-    /* icons inside resume section */
-    .resume .icon path {
-      stroke: #fefefa;
-    }
-    
-    /* remove boxes from badges, make them simple list items */
-    .resume .badges {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 6px;
-      margin-top: 6px;
-    }
-    .resume .badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-    
-    /* bullet dots: subtle gold accent */
-    .resume .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fd993c, #fefefa);
-      box-shadow: 0 0 0 1px rgba(255,255,255,.2) inset;
-    }
-    
-    /* hobbies: keep softer chips for visual separation */
-    .resume .hobby {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      color: #fefefa;
-    }
-    .resume .hobby:hover {
-      background: rgba(255,255,255,.15);
-      transition: background .2s ease;
-    }
-    
-    /* hover lift for cards */
-    .resume .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(0,0,0,.55);
-      transition: all .25s ease;
-    }
-
-/* ===== Timeline section (fixed alignment) ===== */
-.timeline {
-  position: relative;
-  margin: 30px 0;
-  padding-left: 32px;
+<style>
+/* ===== Palette ===== */
+:root{
+  --bg:#fefefa;
+  --panel:#fef6e8;
+  --ink:#101216;
+  --muted:#26495b;
+  --navy:#26495b;
+  --gold:#fd993c;
+  --line:#4c4c4c;
+  --radius:18px;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+  --focus:0 0 0 3px rgba(214,179,90,.45);
 }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 26px;
-  padding-left: 24px;
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+h1,h2,h3,h4{color:var(--navy); margin:0 0 .4rem}
+a{color:var(--gold); text-decoration:none}
+a:hover{text-decoration:underline}
 
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: 18px;
-  bottom: -26px; /* connects to the next dot */
-  width: 2px;
-  background: var(--gold);
-}
+/* ===== Layout helpers ===== */
+.container{max-width:1100px; margin:0 auto; padding:28px}
+.full-bleed{width:100vw; margin-left:calc(-50vw + 50%)}
+section{padding:80px 0}
+section.cream{background:var(--panel)}
+section.dark{background:var(--navy); color:#fefefa}
+section.gold{background:var(--gold); color:#141719}
+.split{display:grid; grid-template-columns:1fr 1fr; min-height:520px; width:100%;}
+.split .right{display:flex; align-items:stretch;}
+.split .media{width:100%; height:100%; object-fit:cover; margin:0; display:block;}
 
-.timeline-item:last-child::before {
-  display: none; /* stop line after the last item */
-}
+/* ===== Header (with hamburger) ===== */
+header{position:sticky; top:0; z-index:10; background:rgba(254,246,232,.9); backdrop-filter:saturate(140%) blur(6px); border-bottom:1px solid rgba(0,0,0,.06)}
+header .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.brand{display:flex; gap:12px; align-items:center}
+.logo{width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--gold))}
+nav{display:flex; gap:12px; flex-wrap:wrap}
+.chipnav{padding:8px 12px; border-radius:999px; border:1px solid var(--line); color:var(--muted); background:#fff3; backdrop-filter:blur(2px)}
+.chipnav:hover{border-color:var(--gold); color:var(--ink)}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:#141719; color:#fff; font-weight:600; transition:transform .12s ease, box-shadow .12s ease}
+.btn.primary{background:linear-gradient(135deg,var(--navy),var(--gold)); border:none}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible{outline:none; box-shadow:var(--focus)}
 
-.timeline-item .dot {
-  position: absolute;
-  left: -11px;
-  top: 4px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--gold), var(--navy));
-  box-shadow: 0 0 0 2px var(--bg);
-  border: 1px solid var(--gold);
-}
-
-.timeline-item h4 {
-  margin: 0;
-  font-size: 18px;
+/* ===== Hamburger menu ===== */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
   color: var(--navy);
-  font-weight: 700;
-  line-height: 1.4;
+  cursor: pointer;
+  line-height: 1;
 }
-
-.timeline-item p {
-  margin: 2px 0 0;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* Optional: slight hover lift for each entry *
-.timeline-item:hover {
-  transform: translateX(3px);
-  transition: all 0.25s ease;
-}/
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .timeline {
-    padding-left: 24px;
-    border-left: 2px solid var(--gold);
+@media (max-width: 960px) {
+  .hamburger { display: block; }
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 72px;
+    right: 24px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
   }
-  .timeline-item .dot {
-    left: -10px;
-    width: 14px;
-    height: 14px;
-  }
+  nav.show { display: flex; animation: fadeIn .25s ease; }
+  @keyframes fadeIn { from {opacity:0; transform:translateY(-6px);} to {opacity:1; transform:none;} }
 }
 
-  </style>
+/* ===== HERO ===== */
+.hero{position:relative; overflow:hidden; padding:0}
+.hero .video-bg{position:relative; height:56vw; max-height:560px; min-height:360px}
+.hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(254,246,232,.85), rgba(254,246,232,.85))}
+.hero .hero-content{position:relative; z-index:1; display:grid; place-items:center; text-align:center; padding:48px 0}
+.hero h2{font-size:clamp(30px,4vw,48px); line-height:1.15}
+.hero p{max-width:72ch; margin:10px auto 18px; color:var(--ink)}
+.hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+
+/* ===== Resume cards ===== */
+.resume-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+.resume .card {
+  background: rgba(38,73,91,0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fefefa;
+  box-shadow: 0 6px 18px rgba(0,0,0,.45);
+}
+
+/* ===== Timeline ===== */
+#timeline { background:#fff; }
+.timeline{position:relative; padding-left:55px}
+.timeline::before{content:""; position:absolute; top:0; bottom:0; left:18px; width:3px; background:#fd993c; border-radius:2px}
+.timeline-item{position:relative; margin-bottom:26px; padding-left:14px}
+.timeline-item h4{margin:0; font-size:18px; color:#1f3b49; font-weight:700; line-height:1.4}
+.timeline-item p{margin:4px 0 0; color:#1f1f1f; font-size:15px; line-height:1.5}
+
+/* ===== Responsive layout ===== */
+@media (max-width: 960px){
+  .split{grid-template-columns:1fr}
+  .resume-grid,.about-grid,.grid{grid-template-columns:1fr}
+  header .bar{flex-direction:row; justify-content:space-between; align-items:center;}
+}
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>Jaden Terrance</h1>
-          <div class="tag">eLearning · UX for Learning · Accessibility · Creative Ops</div>
-        </div>
-      </div>
-      <nav>
-        <a class="chipnav" href="#resume">Resume</a>
-        <a class="chipnav" href="#work">Work</a>
-        <a class="chipnav" href="#about">About</a>
-        <a class="chipnav" href="#contact">Contact</a>
-        <a href="mailto:jaden_terrance@outlook.com" class="btn">Email</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <div class="left card">
-        <h2>Turning complex topics into clear, accessible learning.</h2>
-        <p>I’m Jaden, an eLearning developer and creative designer with 10+ years of experience translating messy, high‑stakes content into engaging, compliant training. I build mobile‑first Storyline/Rise courses, interaction libraries, and tidy ops so teams can ship faster with less stress.</p>
-        <div class="chips">
-          <span class="chip"><strong>Storyline & Rise</strong> · rapid, mobile‑first</span>
-          <span class="chip"><strong>Accessibility</strong> · 508/WCAG</span>
-          <span class="chip"><strong>Instructional Design</strong> · branching</span>
-          <span class="chip"><strong>UX Editing</strong> · clarity + tone</span>
-          <span class="chip"><strong>Ops</strong> · templates & pipelines</span>
-        </div>
-        <div class="cta">
-          <a class="btn primary" href="#work">View selected work</a>
-          <a class="btn" href="#contact">Get in touch</a>
-        </div>
-      </div>
-      <div class="right card">
-        <div class="video-wrap">
-          <!-- Drop in your clip; add a poster image if you like -->
-          <video autoplay muted loop playsinline poster="preview.jpg">
-            <source src="your-visuals.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </section>
-
-<!-- ===== Resume section ===== -->
-<section id="resume" class="resume">
-  <div class="resume-grid">
-
-    <!-- Left Card: Education + Certificates -->
-    <div class="card">
-      <h4>
-        <!-- cap/grad icon -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5zM6 12v4c0 1 3 3 6 3s6-2 6-3v-4" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Education
-      </h4>
-
-      <div class="item">
-        <div class="title">Bachelors in Humanities, English</div>
-        <div class="meta">Brigham Young University — Provo, UT</div>
-      </div>
-
-      <h4 style="margin-top:18px;">
-        <!-- medal/badge icon -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v7l-4 2-4-2V3zM6 21l6-3 6 3M6 21V9m12 12V9" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Certificates &amp; Recognition
-      </h4>
-
-      <div class="item">
-        <div class="title">eLearning Instructional Design Certification</div>
-        <div class="meta">(ATD) Association for Talent Development</div>
-      </div>
-
-      <div class="item">
-        <div class="title">Agile Scrum Master Certification</div>
-        <div class="meta">Cape Project Management Inc.</div>
-      </div>
-
-      <div class="item">
-        <div class="title">Manager Essentials Certification</div>
-        <div class="meta">Leidos Management Essentials Program</div>
+<!-- ===== Header ===== -->
+<header>
+  <div class="container bar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1 style="margin:0">Jaden Terrance</h1>
+        <div class="tag" style="color:var(--muted); font-size:14px">eLearning · UX for Learning · Accessibility · Creative Ops</div>
       </div>
     </div>
 
-    <!-- Right Card: Skills + Hobbies -->
-    <div class="card">
-      <h4>
-        <!-- wrench/skills icon -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6a4 4 0 015.66-3.66l-2.83 2.83 5 5 2.83-2.83A4 4 0 0116 14l-8 8H5v-3l8-8" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Skills &amp; Experience
-      </h4>
+    <!-- Hamburger button -->
+    <button class="hamburger" aria-label="Toggle menu">☰</button>
 
-      <div class="badges">
-        <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">eLearning Development</span></div>
-        <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Creative &amp; Graphic Design</span></div>
-        <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Native English Fluency</span></div>
-        <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Project Management</span></div>
-        <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Agile Methodology &amp; Communication</span></div>
-        <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Asset Creation &amp; Knowledge Management</span></div>
-      </div>
+    <!-- Nav links -->
+    <nav id="navMenu">
+      <a class="chipnav" href="#resume">Resume</a>
+      <a class="chipnav" href="#work">Work</a>
+      <a class="chipnav" href="#timeline">Timeline</a>
+      <a class="chipnav" href="#about">About</a>
+      <a class="chipnav" href="#contact">Contact</a>
+      <a href="mailto:jaden_terrance@outlook.com" class="btn">Email</a>
+    </nav>
+  </div>
+</header>
 
-      <h4 style="margin-top:18px;">
-        <!-- heart icon -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-9-8.35C1.3 9.3 3 6 6.5 6A4.6 4.6 0 0112 8.25 4.6 4.6 0 0117.5 6C21 6 22.7 9.3 21 12.65 19 16.65 12 21 12 21z" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Hobbies &amp; Interests
-      </h4>
-
-      <div class="hobbies">
-        <span class="hobby">🎮&nbsp;Game Development</span>
-        <span class="hobby">🐈&nbsp;Cat Herding</span>
-        <span class="hobby">⚜️&nbsp;Culture &amp; Folklore</span>
-      </div>
+<!-- ===== Hero ===== -->
+<section class="hero full-bleed cream">
+  <div class="video-bg">
+    <video autoplay muted loop playsinline poster="preview.jpg">
+      <source src="your-visuals.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
+  </div>
+  <div class="hero-content container">
+    <h2>Turning complex topics into clear, accessible learning.</h2>
+    <p>I’m Jaden, an eLearning developer and creative designer with 10+ years of experience translating messy, high-stakes content into engaging, compliant training.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">View selected work</a>
+      <a class="btn" href="#contact">Get in touch</a>
     </div>
-
   </div>
 </section>
 
+<!-- ===== RESUME (dark navy band) ===== -->
+<section id="resume" class="resume full-bleed dark">
+  <div class="container">
+    <div class="resume-grid">
+      <!-- Left -->
+      <div class="card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5zM6 12v4c0 1 3 3 6 3s6-2 6-3v-4" /></svg>
+          Education
+        </h4>
+        <div class="item">
+          <div class="title">Bachelors in Humanities, English</div>
+          <div class="meta">Brigham Young University — Provo, UT</div>
+        </div>
 
-    <section id="work" class="section">
-      <h3>Selected Work</h3>
-      <div class="controls" id="filters" role="tablist" aria-label="Filter projects by type">
-        <button class="pill" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="pill" data-filter="design" role="tab">Design</button>
-        <button class="pill" data-filter="video" role="tab">Video</button>
-        <button class="pill" data-filter="writing" role="tab">Writing</button>
-        <button class="pill" data-filter="ops" role="tab">Ops</button>
+        <h4 style="margin-top:18px;">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v7l-4 2-4-2V3zM6 21l6-3 6 3M6 21V9m12 12V9" /></svg>
+          Certificates &amp; Recognition
+        </h4>
+        <div class="item"><div class="title">eLearning Instructional Design Certification</div><div class="meta">(ATD) Association for Talent Development</div></div>
+        <div class="item"><div class="title">Agile Scrum Master Certification</div><div class="meta">Cape Project Management Inc.</div></div>
+        <div class="item"><div class="title">Manager Essentials Certification</div><div class="meta">Leidos Management Essentials Program</div></div>
       </div>
 
-      <div class="grid" id="grid">
-        <article class="tile" data-tags="design writing" data-id="msft">
-          <img class="thumb" loading="lazy" src="./microsoft-copilot-guide.jpg" alt="Microsoft chat-based simulation prototype" />
-          <div class="meta">
-            <div class="caps">Prototype · Storyline + JS</div>
-            <div class="title">Microsoft — Executive Chat Simulation</div>
-            <p class="desc">Created a DEI-driven, mobile-first prototype with branching paths and custom JS which was showcased to the Chief Diversity Officer in advancing a new CoPilot learning initiative.</p>
-            <a href="#" class="btn" data-open="msft">View case</a>
-          </div>
-        </article>
+      <!-- Right -->
+      <div class="card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6a4 4 0 015.66-3.66l-2.83 2.83 5 5 2.83-2.83A4 4 0 0116 14l-8 8H5v-3l8-8" /></svg>
+          Skills &amp; Experience
+        </h4>
+        <div class="badges">
+          <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">eLearning Development</span></div>
+          <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Creative &amp; Graphic Design</span></div>
+          <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Native English Fluency</span></div>
+          <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Project Management</span></div>
+          <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Agile Methodology &amp; Communication</span></div>
+          <div class="badge"><span class="dot" aria-hidden="true"></span><span class="title">Asset Creation &amp; Knowledge Management</span></div>
+        </div>
 
-        <article class="tile" data-tags="design ops" data-id="leidos">
-          <img class="thumb" loading="lazy" src="./leidos.jpg" alt="Leidos employees in training" />
-          <div class="meta">
-            <div class="caps">Accessibility · 508</div>
-            <div class="title">Leidos — 508 Training & Reference</div>
-            <p class="desc">Institutionalized accessibility across Leidos' training department: created Leidos’ first practical 508 training program and developer reference suite.</p>
-            <a href="#" class="btn" data-open="leidos">View case</a>
-          </div>
-        </article>
-        
-        <article class="tile" data-tags="design" data-id="faa">
-          <img class="thumb" loading="lazy" src="./faa.png" alt="FAA Alaskan flight courseware template" />
-          <div class="meta">
-            <div class="caps">Storyline · Templates</div>
-            <div class="title">Federal Aviation Administration — Courseware Redesign</div>
-            <p class="desc">Delivered FAA’s highest-rated training by rebuilding legacy modules with reusable templates and modern Storyline design.</p>
-            <a href="#" class="btn" data-open="faa">View case</a>
-          </div>
-        </article>
-        
-        <article class="tile" data-tags="ops writing" data-id="paylocity">
-          <img class="thumb" loading="lazy" src="paylocity.png" alt="Paylocity training catalog" />
-          <div class="meta">
-            <div class="caps">Ops · Content Systems</div>
-            <div class="title">Paylocity — 700+ Course Taxonomy & LMS Cleanup</div>
-            <p class="desc">Cut content duplication and update time across 700+ courses by launching Paylocity’s first unified eLearning taxonomy.</p>
-            <a href="#" class="btn" data-open="paylocity">View case</a>
-          </div>
-        </article>
-
-        <article class="tile" data-tags="design" data-id="relias">
-          <img class="thumb" loading="lazy" src="./relias.png" alt="Relias virtual medical simulation" />
-          <div class="meta">
-            <div class="caps">Healthcare · Simulation</div>
-            <div class="title">Relias — Clinician Scenarios & 360° Training</div>
-            <p class="desc">Produced emotionally intelligent simulations that improved clinician engagement and certification pass rates.</p>
-            <a href="#" class="btn" data-open="relias">View case</a>
-          </div>
-        </article>
-
-        <article class="tile" data-tags="design" data-id="dliflc">
-          <img class="thumb" loading="lazy" src="./dliflc.jpg" alt="DLIFLC linguistic training conference" />
-          <div class="meta">
-            <div class="caps">Gov · Multilingual</div>
-            <div class="title">DLIFLC — Secure Multilingual Courseware</div>
-            <p class="desc">Engineered multilingual Captivate modules in Chinese, Korean, and Spanish for a secure government environment.</p>
-            <a href="#" class="btn" data-open="dliflc">View case</a>
-          </div>
-        </article>
+        <h4 style="margin-top:18px;">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-9-8.35C1.3 9.3 3 6 6.5 6A4.6 4.6 0 0112 8.25 4.6 4.6 0 0117.5 6C21 6 22.7 9.3 21 12.65 19 16.65 12 21 12 21z" /></svg>
+          Hobbies &amp; Interests
+        </h4>
+        <div class="hobbies">
+          <span class="hobby">🎮&nbsp;Game Development</span>
+          <span class="hobby">🐈&nbsp;Cat Herding</span>
+          <span class="hobby">⚜️&nbsp;Culture &amp; Folklore</span>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="timeline" class="section">
-      <h3>Career Timeline</h3>
+<!-- ===== TIMELINE (split gold + placeholder image) ===== -->
+<section id="timeline" class="full-bleed gold split">
+ <div class="left">
+    <img class="media" src="./work.jpg" alt="Customer company collage">
+  </div>
+  <div class="right">
+    <div class="container timeline-wrap">
+      <h3 style="color:#1f3b49">Career Timeline</h3>
       <div class="timeline">
         <div class="timeline-item">
           <div class="dot"></div>
@@ -517,7 +241,6 @@ charcoal: #4c4c4c
             <p>UX Designer · eLearning Designer Contract, Full Time</p>
           </div>
         </div>
-    
         <div class="timeline-item">
           <div class="dot"></div>
           <div class="content">
@@ -525,7 +248,6 @@ charcoal: #4c4c4c
             <p>eLearning Developer · Programmer Contract, Full Time</p>
           </div>
         </div>
-    
         <div class="timeline-item">
           <div class="dot"></div>
           <div class="content">
@@ -533,7 +255,6 @@ charcoal: #4c4c4c
             <p>Instructional Designer · Knowledge Management Analyst Contract, Full Time</p>
           </div>
         </div>
-    
         <div class="timeline-item">
           <div class="dot"></div>
           <div class="content">
@@ -541,7 +262,6 @@ charcoal: #4c4c4c
             <p>Senior eLearning Developer, Full Time</p>
           </div>
         </div>
-    
         <div class="timeline-item">
           <div class="dot"></div>
           <div class="content">
@@ -550,21 +270,102 @@ charcoal: #4c4c4c
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="about" class="section about">
+<!-- ===== WORK (cream band) ===== -->
+<section id="work" class="section full-bleed cream">
+  <div class="container">
+    <h3>Selected Work</h3>
+    <div class="controls" id="filters" role="tablist" aria-label="Filter projects by type">
+      <button class="pill" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="pill" data-filter="design" role="tab">Design</button>
+      <button class="pill" data-filter="video" role="tab">Video</button>
+      <button class="pill" data-filter="writing" role="tab">Writing</button>
+      <button class="pill" data-filter="ops" role="tab">Ops</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <article class="tile" data-tags="design writing" data-id="msft">
+        <img class="thumb" loading="lazy" src="./microsoft-copilot-guide.jpg" alt="Microsoft chat-based simulation prototype" />
+        <div class="meta">
+          <div class="caps">Prototype · Storyline + JS</div>
+          <div class="title">Microsoft — Executive Chat Simulation</div>
+          <p class="desc">Created a DEI-driven, mobile-first prototype with branching paths and custom JS which was showcased to the Chief Diversity Officer in advancing a new CoPilot learning initiative.</p>
+          <a href="#" class="btn" data-open="msft">View case</a>
+        </div>
+      </article>
+
+      <article class="tile" data-tags="design ops" data-id="leidos">
+        <img class="thumb" loading="lazy" src="./leidos.jpg" alt="Leidos employees in training" />
+        <div class="meta">
+          <div class="caps">Accessibility · 508</div>
+          <div class="title">Leidos — 508 Training & Reference</div>
+          <p class="desc">Institutionalized accessibility across Leidos' training department: created Leidos’ first practical 508 training program and developer reference suite.</p>
+          <a href="#" class="btn" data-open="leidos">View case</a>
+        </div>
+      </article>
+
+      <article class="tile" data-tags="design" data-id="faa">
+        <img class="thumb" loading="lazy" src="./faa.png" alt="FAA Alaskan flight courseware template" />
+        <div class="meta">
+          <div class="caps">Storyline · Templates</div>
+          <div class="title">Federal Aviation Administration — Courseware Redesign</div>
+          <p class="desc">Delivered FAA’s highest-rated training by rebuilding legacy modules with reusable templates and modern Storyline design.</p>
+          <a href="#" class="btn" data-open="faa">View case</a>
+        </div>
+      </article>
+
+      <article class="tile" data-tags="ops writing" data-id="paylocity">
+        <img class="thumb" loading="lazy" src="./paylocity.png" alt="Paylocity training catalog" />
+        <div class="meta">
+          <div class="caps">Ops · Content Systems</div>
+          <div class="title">Paylocity — 700+ Course Taxonomy & LMS Cleanup</div>
+          <p class="desc">Cut content duplication and update time across 700+ courses by launching Paylocity’s first unified eLearning taxonomy.</p>
+          <a href="#" class="btn" data-open="paylocity">View case</a>
+        </div>
+      </article>
+
+      <article class="tile" data-tags="design" data-id="relias">
+        <img class="thumb" loading="lazy" src="./relias.png" alt="Relias virtual medical simulation" />
+        <div class="meta">
+          <div class="caps">Healthcare · Simulation</div>
+          <div class="title">Relias — Clinician Scenarios & 360° Training</div>
+          <p class="desc">Produced emotionally intelligent simulations that improved clinician engagement and certification pass rates.</p>
+          <a href="#" class="btn" data-open="relias">View case</a>
+        </div>
+      </article>
+
+      <article class="tile" data-tags="design" data-id="dliflc">
+        <img class="thumb" loading="lazy" src="./dliflc.jpg" alt="DLIFLC linguistic training conference" />
+        <div class="meta">
+          <div class="caps">Gov · Multilingual</div>
+          <div class="title">DLIFLC — Secure Multilingual Courseware</div>
+          <p class="desc">Engineered multilingual Captivate modules in Chinese, Korean, and Spanish for a secure government environment.</p>
+          <a href="#" class="btn" data-open="dliflc">View case</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT (cream) ===== -->
+<section id="about" class="section full-bleed cream">
+  <div class="container">
+    <div class="about-grid">
       <div class="card">
         <h3>About</h3>
         <p>With over a decade of experience in eLearning development, graphic design, and creative problem-solving, Jaden specializes in transforming complex information into immersive, learner-centered experiences. From interactive government training to gamified healthcare simulations, Jaden brings a learner-first mindset to every project. Passionate about accessibility, innovation, and purposeful design, they thrive in collaborative spaces where curiosity meets strategy — and learning becomes unforgettable.</p>
         <ul>
-          <li>Tools: Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Canva, Google Suite, Microsoft 365 Suite, ChatGPT,  CoPilot</li>
+          <li>Tools: Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Canva, Google Suite, Microsoft 365 Suite, ChatGPT, CoPilot</li>
           <li>Strengths: eLearning development, Graphic design, Video editing, Agile methodology, Asset creation, Communication, Problem solving, Process workflows</li>
-          <li>Industries: Education systems, Entertainment, Government, Healthcare, HR/Payroll, SaaS, </li>
+          <li>Industries: Education systems, Entertainment, Government, Healthcare, HR/Payroll, SaaS</li>
         </ul>
       </div>
       <div class="card">
         <h3>What I’m looking for</h3>
-        <p>Remote contract or part‑time roles where I can own a slice of course design, accessibility, or content ops and deliver visible improvements to products and processes quickly.</p>
+        <p>Remote contract or part-time roles where I can own a slice of course design, accessibility, or content ops and deliver visible improvements to products and processes quickly.</p>
         <ul>
           <li>Design/rewrite key modules in Storyline or Rise</li>
           <li>Build template + interaction libraries for teams</li>
@@ -572,142 +373,160 @@ charcoal: #4c4c4c
           <li>Stand up taxonomies and content trackers</li>
         </ul>
       </div>
-    </section>
-
-    <section id="contact" class="section">
-      <h3>Contact</h3>
-      <div class="contact">
-        <a href="mailto:jaden_terrance@outlook.com">Email</a>
-        <a href="https://www.linkedin.com/in/jaden-terrance/" aria-disabled="true">LinkedIn</a>
-      </div>
-    </section>
-
-    <footer>© <span id="year"></span> Jaden Terrance — Brussels · Available for remote/flexible roles</footer>
-  </div>
-
-  <!-- Case modal -->
-  <dialog id="caseModal" aria-modal="true">
-    <div class="modal-head">
-      <strong id="caseTitle">Case Study</strong>
-      <button class="btn" id="closeModal" aria-label="Close">Close</button>
     </div>
-    <div class="modal-body" id="caseBody"></div>
-  </dialog>
+  </div>
+</section>
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+<!-- ===== CONTACT (dark navy) ===== -->
+<section id="contact" class="section full-bleed dark">
+  <div class="container" style="text-align:center">
+    <h3 style="color:#fefefa">Contact</h3>
+    <p style="opacity:.9">Open to remote/flexible roles. Let’s build helpful, humane learning.</p>
+    <div class="contact" style="justify-content:center">
+      <a href="mailto:jaden_terrance@outlook.com">Email</a>
+      <a href="https://www.linkedin.com/in/jaden-terrance/">LinkedIn</a>
+    </div>
+    <p style="margin-top:28px; opacity:.8">© <span id="year"></span> Jaden Terrance — Brussels</p>
+  </div>
+</section>
 
-    // Filters
-    const pills=[...document.querySelectorAll('.pill')];
-    const tiles=[...document.querySelectorAll('.tile')];
-    pills.forEach(p=>p.addEventListener('click',()=>{
-      pills.forEach(x=>x.setAttribute('aria-selected','false'));
-      p.setAttribute('aria-selected','true');
-      const f=p.dataset.filter;
-      tiles.forEach(tile=>{
-        const show=f==='all'||tile.dataset.tags.includes(f);
-        tile.style.display=show?'flex':'none';
-      });
-    }));
+<!-- ===== Case Modal ===== -->
+<dialog id="caseModal" aria-modal="true">
+  <div class="modal-head">
+    <strong id="caseTitle">Case Study</strong>
+    <button class="btn" id="closeModal" aria-label="Close">Close</button>
+  </div>
+  <div class="modal-body" id="caseBody"></div>
+</dialog>
 
-    // Cases
+<script>
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Filters
+const pills=[...document.querySelectorAll('.pill')];
+const tiles=[...document.querySelectorAll('.tile')];
+pills.forEach(p=>p.addEventListener('click',()=>{
+  pills.forEach(x=>x.setAttribute('aria-selected','false'));
+  p.setAttribute('aria-selected','true');
+  const f=p.dataset.filter;
+  tiles.forEach(tile=>{
+    const show=f==='all'||tile.dataset.tags.includes(f);
+    tile.style.display=show?'flex':'none';
+  });
+}));
+
+// Cases (clean HTML, fully closed)
 const cases = {
   msft: {
     title: "Microsoft — UX/Designer (Contract, 2025)",
     body: `
-    <p>Jaden supported Microsoft's learning innovation efforts by designing a CoPilot-aligned eLearning prototype using Articulate Storyline and Figma. They delivered accessible, interactive content tailored to diverse learner needs, combining UX strategy with instructional design.</p>
-    <h4>Key Project — Executive-Facing Chat-Based Simulation</h4>
-    <ul>
-      <li>Built an engaging, mobile-style learning prototype using Articulate Storyline and custom JavaScript.</li>
-      <li>Designed branching conversation paths with embedded media and user input fields.</li>
-      <li>Delivered a polished, executive-ready experience presented to the Chief Diversity Officer.</li>
+      <p>Jaden supported Microsoft's learning innovation efforts by designing a CoPilot-aligned eLearning prototype using Articulate Storyline and Figma. They delivered accessible, interactive content tailored to diverse learner needs, combining UX strategy with instructional design.</p>
+      <h4>Key Project — Executive-Facing Chat-Based Simulation</h4>
+      <ul>
+        <li>Built an engaging, mobile-style learning prototype using Articulate Storyline and custom JavaScript.</li>
+        <li>Designed branching conversation paths with embedded media and user input fields.</li>
+        <li>Delivered a polished, executive-ready experience presented to the Chief Diversity Officer.</li>
+      </ul>
+      <img src="./microsoft-copilot-guide.jpg" alt="Microsoft Executive Chat Simulation" />
     `
   },
-
   paylocity: {
-    title: "Paylocity — eLearning Developer (Full Time Contract, 2024-2025)",
+    title: "Paylocity — eLearning Developer (Full Time Contract, 2024–2025)",
     body: `
-    <p>At Paylocity, Jaden developed interactive training courses for HR, Sales, and Customer Service teams using Articulate Rise. They also created a comprehensive taxonomy and tagging hierarchy while reviewing and cataloging Paylocity’s 700+ course library to address a 3-year backlog of content.</p>
-    <h4>Key Project — eLearning Database Overhaul</h4>
-    <ul>
-      <li>Reviewed and tagged 700+ Rise courses for reuse and compliance tracking.</li>
-      <li>Created additional educational content in Articulate Rise to fill curriculum gaps.</li>
-      <li>Implemented a tagging system for mandatory updates, reducing duplication and update time.</li>
+      <p>At Paylocity, Jaden developed interactive training courses for HR, Sales, and Customer Service teams using Articulate Rise. They also created a comprehensive taxonomy and tagging hierarchy while reviewing and cataloging Paylocity’s 700+ course library to address a 3-year backlog of content.</p>
+      <h4>Key Project — eLearning Database Overhaul</h4>
+      <ul>
+        <li>Reviewed and tagged 700+ Rise courses for reuse and compliance tracking.</li>
+        <li>Created additional educational content in Articulate Rise to fill curriculum gaps.</li>
+        <li>Implemented a tagging system for mandatory updates, reducing duplication and update time.</li>
+      </ul>
+      <img src="./paylocity.png" alt="Paylocity eLearning Database Overhaul" />
     `
   },
-
   faa: {
-    title: "Federal Aviation Administration — Courseware Design & Development (Leidos Full Time Employee, 2019-2024)",
+    title: "Federal Aviation Administration — Courseware Design & Development (Leidos FTE, 2019–2024)",
     body: `
-    <p>Legacy FAA training materials lacked interactivity, accessibility, and cohesion. Jaden led course redevelopment efforts that produced some of the highest-rated training FAA personnel had received.</p>
-    <ul>
-      <li>Rebuilt training in Articulate Rise & Storyline with custom GUI systems and interaction libraries.</li>
-      <li>Authored 54+ reusable interactions and 22 custom templates to accelerate team output.</li>
-      <li>Developed job aids and visual standards supporting over 150 developers and designers.</li>
+      <p>Legacy FAA training materials lacked interactivity, accessibility, and cohesion. Jaden led course redevelopment efforts that produced some of the highest-rated training FAA personnel had received.</p>
+      <ul>
+        <li>Rebuilt training in Articulate Rise & Storyline with custom GUI systems and interaction libraries.</li>
+        <li>Authored 54+ reusable interactions and 22 custom templates to accelerate team output.</li>
+        <li>Developed job aids and visual standards supporting over 150 developers and designers.</li>
+      </ul>
+      <img src="./faa.png" alt="FAA Courseware Redesign" />
     `
   },
-
   leidos: {
-    title: "Leidos — 508 Accessibility Training & Reference Materials (Leidos Full Time Employee, 2019-2024)",
+    title: "Leidos — 508 Accessibility Training & Reference (Leidos FTE, 2019–2024)",
     body: `
-    <p>The Leidos learning and development team lacked consistent, easy-to-follow accessibility standards. Jaden created training documents and practical guides to ensure Section 508 compliance across development teams.</p>
-    <ul>
-      <li>Produced internal handouts and walkthroughs for accessibility testing and formatting.</li>
-      <li>Mentored team members on screen reader compatibility, navigation order, and color contrast.</li>
-      <li>Standardized accessibility practices in shared team templates and libraries.</li>
+      <p>The Leidos learning and development team lacked consistent, easy-to-follow accessibility standards. Jaden created training documents and practical guides to ensure Section 508 compliance across development teams.</p>
+      <ul>
+        <li>Produced internal handouts and walkthroughs for accessibility testing and formatting.</li>
+        <li>Mentored team members on screen reader compatibility, navigation order, and color contrast.</li>
+        <li>Standardized accessibility practices in shared team templates and libraries.</li>
+      </ul>
+      <img src="./leidos.jpg" alt="Leidos Accessibility Training" />
     `
   },
-
   relias: {
-    title: "Relias — eLearning Developer (Full Time Employee, 2016-2019)",
+    title: "Relias — eLearning Developer (FTE, 2016–2019)",
     body: `
-    <h4>Immersive Training Design for Medical Certification & Hospice Care</h4>
-    <p>Relias needed emotionally intelligent, medically precise training for clinicians across obstetrics, emergency care, hospice, and wound management. Jaden developed interactive simulations reflecting both emotional depth and procedural rigor.</p>
-    <ul>
-      <li>Built 360° simulations and branching decision paths for nurses and PhD-level clinicians.</li>
-      <li>Collaborated with medical SMEs to ensure certification-grade accuracy.</li>
-    </ul>
-
-    <h4>508 Accessibility Guidelines for Medical eLearning Teams</h4>
-    <ul>
-      <li>Created and distributed checklists and quick-reference guides for healthcare developers.</li>
-      <li>Trained teams on building accessible SCORM modules using Articulate Storyline.</li>
-      <li>Integrated emotionally supportive and inclusive design into trauma-related education.</li>
+      <h4>Immersive Training Design for Medical Certification & Hospice Care</h4>
+      <p>Relias needed emotionally intelligent, medically precise training for clinicians across obstetrics, emergency care, hospice, and wound management. Jaden developed interactive simulations reflecting both emotional depth and procedural rigor.</p>
+      <ul>
+        <li>Built 360° simulations and branching decision paths for nurses and PhD-level clinicians.</li>
+        <li>Collaborated with medical SMEs to ensure certification-grade accuracy.</li>
+      </ul>
+      <h4>508 Accessibility Guidelines for Medical eLearning Teams</h4>
+      <ul>
+        <li>Created and distributed checklists and quick-reference guides for healthcare developers.</li>
+        <li>Trained teams on building accessible SCORM modules using Articulate Storyline.</li>
+        <li>Integrated emotionally supportive and inclusive design into trauma-related education.</li>
+      </ul>
+      <img src="./relias.png" alt="Relias Medical Simulations" />
     `
   },
-
   dliflc: {
-    title: "Tipping Point Solutions / DLIFLC — eLearning Developer (Full Time Contract, 2024-2025)",
+    title: "Tipping Point Solutions / DLIFLC — eLearning Developer (Contract, 2024–2025)",
     body: `
-    <p>At Tipping Point Solutions, Jaden developed highly interactive, multilingual eLearning for the U.S. government using Articulate Rise and custom Adobe Captivate frameworks. Their work supported mission-critical training in secure environments.</p>
-    <h4>Key Project — Defense Language Institute Foreign Language Center</h4>
-    <ul>
-      <li>Programmed dynamic modules in HTML, CSS, and JavaScript for multilingual delivery.</li>
-      <li>Produced accessible, SCORM-compliant content in Chinese, Korean, and Spanish.</li>
-      <li>Collaborated with SMEs to ensure cultural accuracy and learner engagement.</li>
+      <p>At Tipping Point Solutions, Jaden developed highly interactive, multilingual eLearning for the U.S. government using Articulate Rise and custom Adobe Captivate frameworks. Their work supported mission-critical training in secure environments.</p>
+      <h4>Key Project — Defense Language Institute Foreign Language Center</h4>
+      <ul>
+        <li>Programmed dynamic modules in HTML, CSS, and JavaScript for multilingual delivery.</li>
+        <li>Produced accessible, SCORM-compliant content in Chinese, Korean, and Spanish.</li>
+        <li>Collaborated with SMEs to ensure cultural accuracy and learner engagement.</li>
+      </ul>
+      <img src="./dliflc.jpg" alt="DLIFLC Multilingual Courseware" />
     `
   }
-    };
-    const modal=document.getElementById('caseModal');
-    const caseTitle=document.getElementById('caseTitle');
-    const caseBody=document.getElementById('caseBody');
-    document.querySelectorAll('[data-open]').forEach(btn=>{
-      btn.addEventListener('click',e=>{
-        e.preventDefault(); const id=btn.dataset.open; const c=cases[id];
-        caseTitle.textContent=c.title; caseBody.innerHTML=c.body; modal.showModal();
-      });
-    });
-    document.getElementById('closeModal').addEventListener('click',()=>modal.close());
-  </script>
+};
+
+const modal=document.getElementById('caseModal');
+const caseTitle=document.getElementById('caseTitle');
+const caseBody=document.getElementById('caseBody');
+document.querySelectorAll('[data-open]').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.preventDefault();
+    const id=btn.dataset.open;
+    const c=cases[id];
+    if(!c) return;
+    caseTitle.textContent=c.title;
+    caseBody.innerHTML=c.body;
+    modal.showModal();
+  });
+});
+document.getElementById('closeModal').addEventListener('click',()=>modal.close());
+<script>
+/* ===== Hamburger menu toggle ===== */
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.getElementById('navMenu');
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+  hamburger.textContent = navMenu.classList.contains('show') ? '✖' : '☰';
+});
+</script>
 </body>
-
 </html>
-
-
-
-
-
 
 
 

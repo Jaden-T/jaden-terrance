@@ -241,6 +241,27 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   section{padding:56px 0}
   html,body{overflow-x:hidden}
 }
+
+/* Darken the About section cards like the Resume ones */
+#about {
+  background: var(--navy);
+  color: #fefefa;
+}
+
+#about .card {
+  background: rgba(38,73,91,0.85);       /* same tone as resume cards */
+  color: #fefefa;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+#about h3 {
+  color: #fefefa;
+}
+#about li { color:#fefefa; }
+   
 </style>
 </head>
 
@@ -529,7 +550,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 <!-- =========================
      CONTACT (dark)
      ========================= -->
-<section id="contact" class="section full-bleed dark">
+<section id="contact" class="section full-bleed gold">
   <div class="container" style="text-align:center">
     <h3 style="color:#fefefa" class="reveal">Contact</h3>
     <p style="opacity:.9" class="reveal">Open to remote/flexible roles. Let’s build helpful, humane learning.</p>

@@ -269,6 +269,20 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 .reveal{opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease}
 .reveal.on{opacity:1; transform:none}
 
+   .split .left img.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 960px) {
+  .split .left img.media {
+    content: url('work_mobile.jpg'); /* swap image on smaller screens */
+    object-fit: contain;
+    background: var(--panel);
+  }
+}
+
 /* =========================
    Responsive
    ========================= */

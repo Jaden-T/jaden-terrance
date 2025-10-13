@@ -458,6 +458,83 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
   hamburger.textContent = navMenu.classList.contains('show') ? '✖' : '☰';
 });
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+
+  /* Containers & spacing */
+  .container {
+    padding: 18px;
+    max-width: 100%;
+  }
+
+  section {
+    padding: 50px 0;
+  }
+
+  /* Hero */
+  .hero .video-bg {
+    height: 80vw;
+    min-height: 260px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  /* Resume grid */
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Work grid */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Timeline */
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    padding-left: 40px;
+  }
+
+  /* About cards */
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Buttons & nav adjustments */
+  .btn {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  nav {
+    right: 16px;
+    left: auto;
+    width: auto;
+  }
+
+  /* Avoid horizontal scrolling */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Fix hero overflow bug */
+  .hero.full-bleed {
+    overflow: hidden;
+  }
+}
+
 </script>
 
 </body>

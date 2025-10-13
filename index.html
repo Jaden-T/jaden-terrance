@@ -126,17 +126,30 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 
 /* Mobile menu */
 @media (max-width: 960px){
-  .hamburger{display:block}
-  nav{
+  .hamburger { display:block; color: var(--gold); }
+
+  nav {
     display:none;
     flex-direction:column; gap:10px;
     position:absolute; top:72px; right:24px;
-    background:var(--panel); border:1px solid var(--line);
-    border-radius:12px; padding:16px; box-shadow:0 6px 16px rgba(0,0,0,.25)
+    background: var(--ink);          /* now black background */
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px; padding:16px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.45);
   }
-  nav.show{display:flex; animation:fadeIn .25s ease}
-  @keyframes fadeIn{from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:none}}
+
+  nav a {
+    color: #fefefa;                  /* white text */
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  nav.show { display:flex; animation:fadeIn .25s ease; }
+  @keyframes fadeIn { from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:none} }
 }
+
 
 /* =========================
    HERO (full width video)

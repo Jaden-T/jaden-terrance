@@ -151,59 +151,23 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 }
 
 
-/* =========================
-   HERO (static image)
-   ========================= */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-}
+<!-- =========================
+     HERO (static image)
+     ========================= -->
+<section class="hero full-bleed cream">
+  <div class="hero-bg">
+    <div class="overlay"></div>
+  </div>
 
-.hero .hero-bg {
-  position: relative;
-  height: 56vw;
-  max-height: 560px;
-  min-height: 360px;
-  background: url('hero.png') center/cover no-repeat;
-}
-
-.hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(254, 246, 232, 0.6),
-    rgba(254, 246, 232, 0.6)
-  );
-}
-
-.hero .hero-content {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 48px 0;
-}
-
-.hero h2 {
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.15;
-}
-
-.hero p {
-  max-width: 72ch;
-  margin: 10px auto 18px;
-  color: var(--ink);
-}
-
-.hero .cta {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+  <div class="hero-content container reveal">
+    <h2>Turning the abstract into tangible experiences across media, learning, UI/UX, and creative operations.</h2>
+    <p>I’m Jaden—a person-centered UX/UI designer, eLearning developer, and creative ops problem-solver. I thrive best in areas where I can transform complex information and abstract concepts into clear visuals, video, UX, scalable eLearning, and operational playbooks so teams can meet their deadlines and stretch goals.</p>
+    <div class="cta">
+      <a class="btn" href="#work">View selected work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
 
 
 /* =========================

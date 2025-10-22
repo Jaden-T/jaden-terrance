@@ -392,6 +392,63 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 #about li { color:#fefefa; }
 
 
+   .about-card {
+  background: rgba(0, 49, 67, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 28px;
+  color: #f9f9f9;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.about-card h4 {
+  margin-top: 20px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.pill-list span {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  color: #f2f2f2;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pill-list span:hover {
+  background: rgba(255, 215, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.strengths {
+  margin-top: 12px;
+  list-style: disc inside;
+  color: #e4e4e4;
+}
+
+.strengths li {
+  margin-bottom: 6px;
+}
+
+
+
    /* =========================
    Service Cards
    ========================= */
@@ -749,34 +806,60 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   <div class="ring-overlay">
     <img class="gold-rings" src="gold_rings_background_animated_transparent.svg" alt="gold rings" />
   </div>
+
   <div class="container">
     <div class="about-grid">
-      <div class="card reveal">
+      
+      <!-- LEFT CARD -->
+      <div class="about-card">
         <h3>About</h3>
-        <p>I design human-centered experiences across product, learning, and media with speed, clarity and precision.</p>
-        <ul>
-<li><strong>Tools:</strong> Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Canva, Google Suite, Microsoft 365 Suite, Workday, ChatGPT, CoPilot</li> 
-<li><strong>Industries:</strong> Education, Entertainment, Government, Healthcare, HR/Payroll, SaaS</li>
-          <li><strong>UX/UI:</strong> flows, wireframes, prototypes, design tokens</li>
-          <li><strong>eLearning:</strong> Storyline/Rise systems, interaction libraries, complex narrative branching, SCORM, Agile methodology, native English speaker</li>
-          <li><strong>Creative Ops:</strong> taxonomies, content systems, templates, QA</li>
-          <li><strong>Media:</strong> video editing, graphic design, motion graphics, asset creation, infographics</li>
+        <p>
+          I design and build human-centered creative systems that blend design, learning, and storytelling. 
+          I transform complex ideas into engaging visuals, intuitive interfaces, and accessible learning experiences.
+        </p>
+
+        <h4>Tools I Use</h4>
+        <div class="pill-list">
+          <span>Adobe CC</span>
+          <span>Figma</span>
+          <span>Storyline/Rise</span>
+          <span>Captivate</span>
+          <span>Canva</span>
+          <span>Google Suite</span>
+          <span>Microsoft 365</span>
+          <span>Workday</span>
+          <span>ChatGPT</span>
+          <span>CoPilot</span>
+        </div>
+      </div>
+
+      <!-- RIGHT CARD -->
+      <div class="about-card">
+        <h3>Open to Work In</h3>
+        <div class="pill-list">
+          <span>Graphic Design</span>
+          <span>UX/UI</span>
+          <span>eLearning</span>
+          <span>Instructional Design</span>
+          <span>Knowledge Management</span>
+          <span>Video Production</span>
+          <span>Creative Ops</span>
+          <span>Programming Support</span>
+        </div>
+
+        <h4>Strengths</h4>
+        <ul class="strengths">
+          <li>Bridging creativity and structure</li>
+          <li>Developing scalable content systems</li>
+          <li>Streamlining workflows for teams</li>
+          <li>Balancing artistic vision with accessibility</li>
         </ul>
       </div>
 
-      <div class="card reveal">
-        <h3>What I’m looking for</h3>
-        <p>Remote contract or part-time roles in UX/UI, eLearning, video or creative services where I can own a slice of design, accessibility, or process improvement—and deliver visible impact fast.</p>
-        <ul>
-          <li>Design/rewrite key modules in Storyline or Rise</li>
-          <li>Build template + interaction libraries for teams</li>
-          <li>Create accessibility guides/checklists &amp; train devs</li>
-          <li>Stand up taxonomies and content trackers</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
+
 
 <!-- =========================
      CONTACT (dark)

@@ -152,16 +152,58 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 
 
 /* =========================
-   HERO (full width video)
+   HERO (static background with faded image)
    ========================= */
-.hero{position:relative; overflow:hidden; padding:0}
-.hero .video-bg{position:relative; height:56vw; max-height:560px; min-height:360px}
-.hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
-.hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(254,246,232,.86), rgba(254,246,232,.86))}
-.hero .hero-content{position:relative; z-index:1; display:grid; place-items:center; text-align:center; padding:48px 0}
-.hero h2{font-size:clamp(30px,4vw,48px); line-height:1.15}
-.hero p{max-width:72ch; margin:10px auto 18px; color:var(--ink)}
-.hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  color: var(--ink);
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('hero.png') center/cover no-repeat;
+  filter: brightness(0.55) blur(1px);
+  opacity: 0.65;
+  z-index: 0;
+  transform: scale(1.05);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 120px 24px 100px;
+  display: grid;
+  place-items: center;
+}
+
+.hero h2 {
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.2;
+  color: #fefefa;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  max-width: 70ch;
+  margin: 16px auto 24px;
+  color: #fefefa;
+  background: rgba(16,18,22,0.35);
+  padding: 12px 18px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.hero .cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 /* =========================
    Resume (dark cards)
@@ -362,17 +404,13 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 </header>
 
 <!-- =========================
-     HERO (full-bleed video)
+     HERO SECTION
      ========================= -->
 <section class="hero full-bleed cream">
-  <div class="video-bg">
-    <video autoplay muted loop playsinline poster="preview.jpg">
-      <source src="your-visuals.mp4" type="video/mp4" />
-    </video>
-    <div class="overlay"></div>
-  </div>
+  <div class="hero-bg"></div>
+
   <div class="hero-content container reveal">
-   <h2>Turning the abstract into tangible experiences across media, learning, UI/UX, and creative operations.</h2>
+    <h2>Turning the abstract into tangible experiences across media, learning, UI/UX, and creative operations.</h2>
     <p>I’m Jaden—a person-centered UX/UI designer, eLearning developer, and creative ops problem-solver. I thrive best in areas where I can transform complex information and abstract concepts into clear visuals, video, UX, scalable eLearning, and operational playbooks so teams can meet their deadlines and stretch goals.</p>
     <div class="cta">
       <a class="btn" href="#work">View selected work</a>

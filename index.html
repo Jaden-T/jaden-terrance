@@ -275,6 +275,17 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   object-fit: cover;
 }
 
+   #timeline .left img.media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* ensures the entire image shows */
+  background: var(--panel);  /* matches your cream tone */
+  padding: 12px;             /* gives it soft breathing room */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 960px) {
   .split .left img.media {
     content: url('work_mobile.jpg'); /* swap image on smaller screens */

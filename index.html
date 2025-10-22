@@ -11,11 +11,11 @@
    Palette & base tokens
    ========================= */
 :root{
-  --bg:#fefefa;
-  --panel:#fef6e8;
-  --ink:#101216;
-  --muted:#26495b;
-  --navy:#26495b;
+  --bg:#fefefa;          /* white */
+  --panel:#fef6e8;       /* cream */
+  --ink:#101216;         /* body text (black-ish) */
+  --muted:#26495b;       /* secondary tone */
+  --navy:#26495b;        /* headings */
   --gold:#fd993c;
   --line:#4c4c4c;
   --radius:18px;
@@ -33,114 +33,135 @@ body{
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-/* Headings */
-h1,h2,h3,h4{margin:0 0 .4rem;color:var(--navy)}
-a{color:var(--gold);text-decoration:none}
+h1{color:var(--cream); margin:0 0 .4rem},h2,h3,h4{color:var(--navy); margin:0 0 .4rem}
+a{color:var(--gold); text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* Layout helpers */
-.container{max-width:1100px;margin:0 auto;padding:28px}
+.container{max-width:1100px; margin:0 auto; padding:28px}
 section{padding:80px 0}
-.full-bleed{width:100vw;margin-left:calc(-50vw + 50%)}
+.full-bleed{width:100vw; margin-left:calc(-50vw + 50%)}
 .cream{background:var(--panel)}
-.dark{background:var(--navy);color:#fefefa}
-.gold{background:var(--gold);color:#141719}
-.inkblock{background:var(--ink);color:#fefefa}
+.dark{background:var(--navy); color:#fefefa}
+.gold{background:var(--gold); color:#141719}
+.inkblock {background: var(--ink); color: #fefefa}
 
-/* ========================= Header ========================= */
+   /* Layout for Ink Charcoal Cards*/
+   .inkblock .card {
+  background: rgba(16,18,22,0.85);
+  color: #fefefa;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.inkblock h1,
+.inkblock h2,
+.inkblock h3,
+.inkblock h4 {
+  color: #fefefa;
+}
+
+/* =========================
+   Static ring overlays
+   ========================= */
+.ring-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.gold-rings {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#resume, #work, #about { position: relative; }
+#resume .container, #work .container, #about .container { position: relative; z-index: 1; }
+
+@media (max-width: 768px) {
+  .ring-overlay img { content: url('gold_rings_background_mobile.svg'); }
+}
+
+/* =========================
+   Header + Hamburger
+   ========================= */
 header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(16,18,22,0.88);
+  background: var(--ink);
   color: #fefefa;
   border-bottom: 1px solid rgba(255,255,255,0.15);
   box-shadow: 0 2px 8px rgba(0,0,0,.4);
-  backdrop-filter: blur(8px);
 }
-header .bar{
-  display:flex;align-items:center;justify-content:space-between;gap:16px
-}
-.brand{display:flex;gap:12px;align-items:center}
-nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+header .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.brand{display:flex; gap:12px; align-items:center}
+nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 .chipnav{
-  padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.08);
-  color:#fefefa;
-  backdrop-filter: blur(3px);
+  padding:8px 12px; border-radius:999px; border:1px solid var(--line); 
+  background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #fefefa; backdrop-filter:blur(2px)
 }
-.chipnav:hover{border-color:var(--gold);color:var(--gold)}
+.chipnav:hover{border-color:var(--gold); color:var(--gold)}
 .btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:12px 16px;border-radius:12px;
-  background:var(--gold);color:#101216;
-  font-weight:600;border:none;
-  transition:transform .12s ease
+  display:inline-flex; align-items:center; gap:8px; padding:12px 16px;
+  border-radius:12px; border:1px solid var(--line); background:var(--gold);
+  color: #101216; border: none; font-weight:600; transition:transform .12s ease, box-shadow .12s ease
 }
+.btn.primary{background:linear-gradient(135deg,var(--navy),var(--gold)); border:none}
 .btn:hover{transform:translateY(-1px)}
-.hamburger{display:none;font-size:28px;background:none;border:none;color:var(--gold);cursor:pointer}
+.btn:focus-visible{outline:none; box-shadow:var(--focus)}
 
-/* ========================= HERO (static image) ========================= */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-}
-.hero .hero-bg {
-  position: relative;
-  height: 56vw;
-  max-height: 560px;
-  min-height: 360px;
-  background: url('hero.png') center/cover no-repeat;
-  filter: brightness(0.75);
-}
-.hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(16,18,22,0.55), rgba(254,246,232,0.85));
-}
-.hero .hero-content {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fefefa;
-  padding: 0 24px;
-}
-.hero h2 {
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.15;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-.hero p {
-  max-width: 70ch;
-  margin: 12px auto 18px;
-  color: #fefefa;
-  background: rgba(16,18,22,0.45);
-  padding: 12px 18px;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-.hero .cta {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
+.hamburger{
+  display:none; font-size:28px; background:none; border:none; color:var(--gold);
+  cursor:pointer; line-height:1;
 }
 
-/* Responsive header menu */
-@media (max-width:960px){
-  .hamburger{display:block}
-  nav{display:none;flex-direction:column;gap:10px;position:absolute;top:72px;right:24px;background:var(--ink);border-radius:12px;padding:16px;box-shadow:0 6px 16px rgba(0,0,0,0.45)}
-  nav.show{display:flex}
+/* Mobile menu */
+@media (max-width: 960px){
+  .hamburger { display:block; color: var(--gold); }
+
+  nav {
+    display:none;
+    flex-direction:column; gap:10px;
+    position:absolute; top:72px; right:24px;
+    background: var(--ink);          /* now black background */
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px; padding:16px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.45);
+  }
+
+  nav a {
+    color: #fefefa;                  /* white text */
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  nav.show { display:flex; animation:fadeIn .25s ease; }
+  @keyframes fadeIn { from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:none} }
 }
+
+
+/* =========================
+   HERO (full width video)
+   ========================= */
+.hero{position:relative; overflow:hidden; padding:0}
+.hero .video-bg{position:relative; height:56vw; max-height:560px; min-height:360px}
+.hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(254,246,232,.86), rgba(254,246,232,.86))}
+.hero .hero-content{position:relative; z-index:1; display:grid; place-items:center; text-align:center; padding:48px 0}
+.hero h2{font-size:clamp(30px,4vw,48px); line-height:1.15}
+.hero p{max-width:72ch; margin:10px auto 18px; color:var(--ink)}
+.hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
 
 /* =========================
    Resume (dark cards)

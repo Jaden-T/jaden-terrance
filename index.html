@@ -173,7 +173,12 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 .hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* darker, subtle */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
   z-index: 1;
 }
 
@@ -188,14 +193,22 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 .hero h2 {
   font-size: clamp(30px, 4vw, 48px);
   line-height: 1.15;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.8),
+    0 0 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
   max-width: 70ch;
-  margin: 12px auto 18px;
-  color: #fefefa;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 16px auto 24px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #f4f4f4;
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.85),
+    0 0 10px rgba(0, 0, 0, 0.4);
+  opacity: 0.95;
 }
 
 .hero .cta {

@@ -391,67 +391,6 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 }
 #about li { color:#fefefa; }
 
-/* ======================================
-   Enhanced About layout (lighter parsing)
-   ====================================== */
-
-.capability-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-
-.cap-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 14px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cap-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
-}
-
-.cap-card i {
-  width: 30px;
-  height: 30px;
-  color: var(--gold);
-  margin-bottom: 8px;
-  opacity: 0.9;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.cap-card:hover i {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-.cap-card h4 {
-  color: var(--gold);
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.cap-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cap-card li {
-  color: #fefefa;
-  font-size: 0.95rem;
-  margin: 0.25rem 0;
-  opacity: 0.9;
-}
-
 
    /* =========================
    Service Cards
@@ -806,45 +745,24 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 <!-- =========================
      ABOUT (navy)
      ========================= -->
-<section id="about" class="section">
-  <div class="capability-grid">
-  <div class="cap-card">
-    <i data-lucide="palette"></i>
-    <h4>Design</h4>
-    <ul>
-      <li>UX/UI Design</li>
-      <li>Graphic Design</li>
-    </ul>
+<section id="about" class="section full-bleed dark">
+  <div class="ring-overlay">
+    <img class="gold-rings" src="gold_rings_background_animated_transparent.svg" alt="gold rings" />
   </div>
-
-  <div class="cap-card">
-    <i data-lucide="book-open"></i>
-    <h4>Learning</h4>
-    <ul>
-      <li>eLearning Development</li>
-      <li>Instructional Design</li>
-    </ul>
-  </div>
-
-  <div class="cap-card">
-    <i data-lucide="settings"></i>
-    <h4>Systems</h4>
-    <ul>
-      <li>Taxonomies & Knowledge Systems</li>
-      <li>QA & Troubleshooting</li>
-    </ul>
-  </div>
-
-  <div class="cap-card">
-    <i data-lucide="film"></i>
-    <h4>Media</h4>
-    <ul>
-      <li>Video Editing</li>
-      <li>Motion Graphics</li>
-    </ul>
-  </div>
-</section>
-
+  <div class="container">
+    <div class="about-grid">
+      <div class="card reveal">
+        <h3>About</h3>
+        <p>I design human-centered experiences across product, learning, and media with speed, clarity and precision.</p>
+        <ul>
+<li><strong>Tools:</strong> Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Canva, Google Suite, Microsoft 365 Suite, Workday, ChatGPT, CoPilot</li> 
+<li><strong>Industries:</strong> Education, Entertainment, Government, Healthcare, HR/Payroll, SaaS</li>
+          <li><strong>UX/UI:</strong> flows, wireframes, prototypes, design tokens</li>
+          <li><strong>eLearning:</strong> Storyline/Rise systems, interaction libraries, complex narrative branching, SCORM, Agile methodology, native English speaker</li>
+          <li><strong>Creative Ops:</strong> taxonomies, content systems, templates, QA</li>
+          <li><strong>Media:</strong> video editing, graphic design, motion graphics, asset creation, infographics</li>
+        </ul>
+      </div>
 
       <div class="card reveal">
         <h3>What I’m looking for</h3>

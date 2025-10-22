@@ -228,41 +228,112 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 
 
 /* =========================
-   Resume (dark cards)
+   Resume (dark cards, updated to match About)
    ========================= */
-.resume-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:18px;
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }
-.resume .card{
-  background:rgba(38,73,91,.85);
-  color:#fefefa; border:1px solid rgba(255,255,255,.1);
-  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
-  box-shadow:0 6px 18px rgba(0,0,0,.45);
+
+.resume .card {
+  background: rgba(0, 35, 49, 0.95); /* same deep navy as About */
+  color: #fefefa;
+  border: 1px solid rgba(255, 215, 0, 0.25); /* subtle gold tint */
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  padding: 28px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
-.resume h4{
-  margin:0 0 12px; font-size:18px; letter-spacing:.2px; color:#fefefa;
-  display:flex; align-items:center; gap:10px
+
+.resume .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 200, 80, 0.08);
+  border-color: rgba(255, 215, 0, 0.45);
 }
-.resume .item{margin:0 0 14px}
-.resume .item .title{font-weight:700}
-.resume .item .meta{opacity:.9; font-size:14px}
-.badges{display:grid; grid-template-columns:1fr; gap:6px; margin-top:6px}
-.badge{display:flex; align-items:center; gap:10px}
-.badge .dot{
-  width:10px; height:10px; border-radius:50%;
-  background:radial-gradient(circle at 30% 30%, #fd993c, #fefefa);
-  box-shadow:0 0 0 1px rgba(255,255,255,.2) inset
+
+/* Headings */
+.resume h4 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.hobbies{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px}
-.hobby{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#fefefa; padding:10px 12px; border-radius:12px}
-.hobby:hover{background:rgba(255,255,255,.15); transition:background .2s ease}
-.icon{width:18px; height:18px; display:inline-block; vertical-align:middle}
-.resume .icon path{stroke:#fefefa; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+
+/* Text & Metadata */
+.resume .item {
+  margin: 0 0 14px;
+}
+.resume .item .title {
+  font-weight: 700;
+}
+.resume .item .meta {
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+/* Badges & dots */
+.badges {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.badge .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--gold), #fefefa);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+/* Hobbies */
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+.hobby {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  color: #fefefa;
+  padding: 10px 12px;
+  border-radius: 22px;
+  transition: all 0.3s ease;
+}
+.hobby:hover {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.45);
+  transform: scale(1.05);
+}
+
+/* Icons */
+.icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.resume .icon path {
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
 /* =========================
    Timeline (split w/ image)
@@ -607,11 +678,12 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
         </h4>
         <div class="badges">
           <div class="badge"><span class="dot"></span><span class="title">UX/UI Design</span></div>
-          <div class="badge"><span class="dot"></span><span class="title">eLearning Development</span></div>
+          <div class="badge"><span class="dot"></span><span class="title">eLearning Design & Development</span></div>
           <div class="badge"><span class="dot"></span><span class="title">Creative Operations</span></div>
-          <div class="badge"><span class="dot"></span><span class="title">Knowledge Management</span></div>
-          <div class="badge"><span class="dot"></span><span class="title">Graphic & Video Design</span></div>
+          <div class="badge"><span class="dot"></span><span class="title">Knowledge Management & Taxonomy Design</span></div>
           <div class="badge"><span class="dot"></span><span class="title">Accessibility (508/WCAG)</span></div>
+          <div class="badge"><span class="dot"></span><span class="title">Video & Motion Design</span></div>
+          <div class="badge"><span class="dot"></span><span class="title">Systems & Process Design</span></div>
         </div>
 
         <h4 style="margin-top:18px;">

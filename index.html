@@ -391,6 +391,82 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 }
 #about li { color:#fefefa; }
 
+/* ======================================
+   Enhanced About layout (lighter parsing)
+   ====================================== */
+
+/* General layout and spacing */
+#about .content {
+  display: grid;
+  gap: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+/* Capability grid styling */
+#about .capabilities {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#about .capabilities th {
+  padding: 12px;
+  background: rgba(255,255,255,0.08);
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#about .capabilities td {
+  padding: 10px 12px;
+  color: #fefefa;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Make the grid more responsive */
+@media (max-width: 768px) {
+  #about .capabilities,
+  #about .capabilities tr,
+  #about .capabilities td,
+  #about .capabilities th {
+    display: block;
+    width: 100%;
+  }
+  #about .capabilities td {
+    border: none;
+    padding: 6px 0;
+  }
+}
+
+/* Tools line — tidy spacing */
+#about .tools {
+  font-size: 0.95rem;
+  color: #fefefa;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0.5rem 0 1rem;
+}
+
+/* “Open to work in” badges */
+#about .open-to span {
+  display: inline-block;
+  margin: 4px 6px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #fefefa;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#about .open-to span:hover {
+  background: var(--gold);
+  color: #101216;
+  transform: scale(1.05);
+}
 
    /* =========================
    Service Cards
@@ -745,24 +821,52 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 <!-- =========================
      ABOUT (navy)
      ========================= -->
-<section id="about" class="section full-bleed dark">
-  <div class="ring-overlay">
-    <img class="gold-rings" src="gold_rings_background_animated_transparent.svg" alt="gold rings" />
-  </div>
-  <div class="container">
-    <div class="about-grid">
-      <div class="card reveal">
-        <h3>About</h3>
-        <p>I design human-centered experiences across product, learning, and media with speed, clarity and precision.</p>
-        <ul>
-<li><strong>Tools:</strong> Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Canva, Google Suite, Microsoft 365 Suite, Workday, ChatGPT, CoPilot</li> 
-<li><strong>Industries:</strong> Education, Entertainment, Government, Healthcare, HR/Payroll, SaaS</li>
-          <li><strong>UX/UI:</strong> flows, wireframes, prototypes, design tokens</li>
-          <li><strong>eLearning:</strong> Storyline/Rise systems, interaction libraries, complex narrative branching, SCORM, Agile methodology, native English speaker</li>
-          <li><strong>Creative Ops:</strong> taxonomies, content systems, templates, QA</li>
-          <li><strong>Media:</strong> video editing, graphic design, motion graphics, asset creation, infographics</li>
-        </ul>
+<section id="about" class="section">
+  <div class="card">
+    <h3>About</h3>
+    <div class="content">
+      <p>I design and build human-centered creative systems — translating complex ideas into engaging visuals, interfaces, and learning experiences. I thrive at the intersection of design, storytelling, and technology.</p>
+
+      <table class="capabilities">
+        <tr>
+          <th>🎨 Design</th>
+          <th>🧠 Learning</th>
+          <th>⚙️ Systems</th>
+          <th>🎥 Media</th>
+        </tr>
+        <tr>
+          <td>UX/UI Design</td>
+          <td>eLearning Development</td>
+          <td>Taxonomies & Knowledge Systems</td>
+          <td>Video Editing</td>
+        </tr>
+        <tr>
+          <td>Graphic Design</td>
+          <td>Instructional Design</td>
+          <td>QA & Troubleshooting</td>
+          <td>Motion Graphics</td>
+        </tr>
+      </table>
+
+      <div class="tools">
+        <strong>Tools:</strong> Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Canva, Google Suite, Microsoft 365, Workday, ChatGPT, CoPilot
       </div>
+
+      <div class="open-to">
+        <strong>Open to work in:</strong><br>
+        <span>Graphic Design</span>
+        <span>UX/UI</span>
+        <span>eLearning</span>
+        <span>Instructional Design</span>
+        <span>Knowledge Management</span>
+        <span>Video Production</span>
+        <span>Creative Ops</span>
+        <span>Programming</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <div class="card reveal">
         <h3>What I’m looking for</h3>

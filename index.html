@@ -158,44 +158,44 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   position: relative;
   overflow: hidden;
   padding: 0;
-  color: var(--ink);
-  text-align: center;
 }
 
-.hero-bg {
+.hero .hero-bg {
   position: absolute;
   inset: 0;
   background: url('hero.png') center/cover no-repeat;
-  filter: brightness(0.55) blur(1px);
-  opacity: 0.65;
+  filter: brightness(0.55) blur(0.5px);
+  opacity: 0.9;
   z-index: 0;
   transform: scale(1.05);
 }
 
-.hero-content {
-  position: relative;
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* darker, subtle */
   z-index: 1;
-  padding: 120px 24px 100px;
-  display: grid;
-  place-items: center;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 96px 24px;
 }
 
 .hero h2 {
-  font-size: clamp(28px, 4vw, 46px);
-  line-height: 1.2;
-  color: #fefefa;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.15;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero p {
   max-width: 70ch;
-  margin: 16px auto 24px;
+  margin: 12px auto 18px;
   color: #fefefa;
-  background: rgba(16,18,22,0.35);
-  padding: 12px 18px;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 .hero .cta {
@@ -204,6 +204,7 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   justify-content: center;
   flex-wrap: wrap;
 }
+
 
 /* =========================
    Resume (dark cards)

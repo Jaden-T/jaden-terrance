@@ -395,78 +395,63 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
    Enhanced About layout (lighter parsing)
    ====================================== */
 
-/* General layout and spacing */
-#about .content {
+.capability-grid {
   display: grid;
-  gap: 1.8rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
 }
 
-/* Capability grid styling */
-#about .capabilities {
-  width: 100%;
-  border-collapse: collapse;
+.cap-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 1.5rem;
   text-align: center;
-  background: rgba(255,255,255,0.04);
-  border-radius: 10px;
-  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#about .capabilities th {
-  padding: 12px;
-  background: rgba(255,255,255,0.08);
+.cap-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+.cap-card i {
+  width: 30px;
+  height: 30px;
   color: var(--gold);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-#about .capabilities td {
-  padding: 10px 12px;
-  color: #fefefa;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Make the grid more responsive */
-@media (max-width: 768px) {
-  #about .capabilities,
-  #about .capabilities tr,
-  #about .capabilities td,
-  #about .capabilities th {
-    display: block;
-    width: 100%;
-  }
-  #about .capabilities td {
-    border: none;
-    padding: 6px 0;
-  }
-}
-
-/* Tools line — tidy spacing */
-#about .tools {
-  font-size: 0.95rem;
-  color: #fefefa;
+  margin-bottom: 8px;
   opacity: 0.9;
-  line-height: 1.6;
-  margin: 0.5rem 0 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* “Open to work in” badges */
-#about .open-to span {
-  display: inline-block;
-  margin: 4px 6px;
-  padding: 6px 12px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 20px;
-  font-size: 0.9rem;
+.cap-card:hover i {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.cap-card h4 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cap-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cap-card li {
   color: #fefefa;
-  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+  opacity: 0.9;
 }
 
-#about .open-to span:hover {
-  background: var(--gold);
-  color: #101216;
-  transform: scale(1.05);
-}
 
    /* =========================
    Service Cards
@@ -822,48 +807,41 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
      ABOUT (navy)
      ========================= -->
 <section id="about" class="section">
-  <div class="card">
-    <h3>About</h3>
-    <div class="content">
-      <p>I design and build human-centered creative systems — translating complex ideas into engaging visuals, interfaces, and learning experiences. I thrive at the intersection of design, storytelling, and technology.</p>
+  <div class="capability-grid">
+  <div class="cap-card">
+    <i data-lucide="palette"></i>
+    <h4>Design</h4>
+    <ul>
+      <li>UX/UI Design</li>
+      <li>Graphic Design</li>
+    </ul>
+  </div>
 
-      <table class="capabilities">
-        <tr>
-          <th>🎨 Design</th>
-          <th>🧠 Learning</th>
-          <th>⚙️ Systems</th>
-          <th>🎥 Media</th>
-        </tr>
-        <tr>
-          <td>UX/UI Design</td>
-          <td>eLearning Development</td>
-          <td>Taxonomies & Knowledge Systems</td>
-          <td>Video Editing</td>
-        </tr>
-        <tr>
-          <td>Graphic Design</td>
-          <td>Instructional Design</td>
-          <td>QA & Troubleshooting</td>
-          <td>Motion Graphics</td>
-        </tr>
-      </table>
+  <div class="cap-card">
+    <i data-lucide="book-open"></i>
+    <h4>Learning</h4>
+    <ul>
+      <li>eLearning Development</li>
+      <li>Instructional Design</li>
+    </ul>
+  </div>
 
-      <div class="tools">
-        <strong>Tools:</strong> Articulate Storyline/Rise, Adobe CC, Figma, Captivate, Canva, Google Suite, Microsoft 365, Workday, ChatGPT, CoPilot
-      </div>
+  <div class="cap-card">
+    <i data-lucide="settings"></i>
+    <h4>Systems</h4>
+    <ul>
+      <li>Taxonomies & Knowledge Systems</li>
+      <li>QA & Troubleshooting</li>
+    </ul>
+  </div>
 
-      <div class="open-to">
-        <strong>Open to work in:</strong><br>
-        <span>Graphic Design</span>
-        <span>UX/UI</span>
-        <span>eLearning</span>
-        <span>Instructional Design</span>
-        <span>Knowledge Management</span>
-        <span>Video Production</span>
-        <span>Creative Ops</span>
-        <span>Programming</span>
-      </div>
-    </div>
+  <div class="cap-card">
+    <i data-lucide="film"></i>
+    <h4>Media</h4>
+    <ul>
+      <li>Video Editing</li>
+      <li>Motion Graphics</li>
+    </ul>
   </div>
 </section>
 

@@ -218,6 +218,14 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   flex-wrap: wrap;
 }
 
+   #intro img {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+#intro img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+
 
 /* =========================
    Resume (dark cards)
@@ -432,6 +440,44 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     </div>
   </div>
 </section>
+
+   <!-- =========================
+     HERO PORTRAIT + VIDEO INTRO
+     ========================= -->
+<section id="intro" class="section full-bleed cream" style="padding-top:0;">
+  <div class="container" style="text-align:center;">
+    
+    <!-- Floating portrait -->
+    <div style="position:relative; display:inline-block; margin-top:-100px;">
+      <div style="
+        width:180px; height:180px; border-radius:50%;
+        overflow:hidden; border:4px solid var(--gold);
+        box-shadow:0 8px 24px rgba(0,0,0,0.35);
+        background:#fff; margin-bottom:18px;">
+        <img src='profile.png' alt='Jaden Terrance portrait' style='width:100%; height:100%; object-fit:cover;'>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin-top:0;">Meet Jaden Terrance</h3>
+    <p class="reveal" style="max-width:70ch;margin:0 auto 20px;color:var(--muted);">
+      I believe that design and learning are storytelling tools. In this short interview, I share how my creative process blends UX, accessibility, and narrative design to craft experiences that feel both human and intelligent.
+    </p>
+
+    <!-- Embedded YouTube video -->
+    <div class="reveal" style="aspect-ratio:16/9;max-width:720px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.35);">
+      <iframe 
+        width="100%" height="100%"
+        src="https://www.youtube.com/embed/V-e3K9iRo6Q"
+        title="Jaden Terrance Interview"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- =========================
      RESUME (dark band)

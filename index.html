@@ -150,6 +150,24 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   @keyframes fadeIn { from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:none} }
 }
 
+   .chipnav.highlight {
+  background: var(--accent, #fda94f);
+  color: #101216;
+  border: 1px solid transparent;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.chipnav.highlight:hover {
+  background: #ffc777; /* lighter hover tone */
+  color: #101216;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
 
 /* =========================
    HERO (static background with faded image)
@@ -553,14 +571,20 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-   .service-icon {
+.service-icon {
   width: 100%;
-  max-width: 140px;
+  max-width: 110px; /* smaller visual footprint */
   height: auto;
   display: block;
-  margin: 0 auto 18px auto;
-  border-radius: 12px;
+  margin: 0 auto 14px auto; /* tighter spacing below */
+  border-radius: 10px;
   object-fit: contain;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
 
@@ -587,14 +611,14 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 
     <button class="hamburger" aria-label="Toggle menu">☰</button>
 
-    <nav id="navMenu">
-      <a class="chipnav" href="#resume">Resume</a>
-      <a class="chipnav" href="#timeline">Timeline</a>
-      <a class="chipnav" href="#work">Work</a>
-      <a class="chipnav" href="#about">About</a>
-      <a class="chipnav" href="#contact">Contact</a>
-      <a class="chipnav" href="https://360.eu.articulate.com/review/content/f6de46ed-a9a6-4e9d-ae63-f3388cf164dc/review" target="_blank">Portfolio</a>
-    </nav>
+<nav id="navMenu">
+  <a class="chipnav" href="#resume">Resume</a>
+  <a class="chipnav" href="#work">Work</a>
+  <a class="chipnav" href="#timeline">Timeline</a>
+  <a class="chipnav" href="#about">About</a>
+  <a class="chipnav" href="#contact">Contact</a>
+     <a class="chipnav highlight" href="https://360.eu.articulate.com/review/content/f6de46ed-a9a6-4e9d-ae63-f3388cf164dc/review" target="_blank" rel="noopener noreferrer">Portfolio</a>
+</nav>
   </div>
 </header>
 

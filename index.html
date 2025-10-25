@@ -248,6 +248,72 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   box-shadow: 0 12px 28px rgba(0,0,0,0.45);
 }
 
+/* =========================
+   CONSULTING FOCUS SECTION
+========================= */
+.consulting-focus {
+  background-color: #fefaf6; /* light cream background */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.consulting-focus .section-title {
+  font-size: 2rem;
+  color: #0c2238; /* deep navy */
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.consulting-focus .section-intro {
+  max-width: 750px;
+  margin: 0 auto 2.5rem auto;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.focus-card {
+  background-color: #0c2238;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.focus-card h3 {
+  color: #fbb040; /* gold accent */
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.focus-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f8f8f8;
+}
+
+.consulting-focus .section-note {
+  color: #333;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
 
 /* =========================
    Resume (dark cards, updated to match About)
@@ -705,6 +771,149 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   </div>
 </section>
 
+   <!-- =========================
+     CONSULTING FOCUS SECTION
+========================= -->
+<section class="consulting-focus" id="consulting-focus">
+  <div class="container">
+    <h2 class="section-title">Consulting Focus</h2>
+    <p class="section-intro">
+      I help organizations simplify complex learning, design, and creative operations through
+      structured systems, accessible design, and actionable strategy.
+    </p>
+
+    <div class="focus-grid">
+      <div class="focus-card">
+        <h3>UX & Learning Systems</h3>
+        <p>
+          Auditing and optimizing user experiences and learning flows for clarity, accessibility, and scalability.
+          Includes prototypes, templates, and design system documentation.
+        </p>
+      </div>
+
+      <div class="focus-card">
+        <h3>eLearning Design & Modernization</h3>
+        <p>
+          Transforming legacy training into interactive, modern Storyline or Rise modules.
+          Creating reusable templates and frameworks that make future builds faster and more consistent.
+        </p>
+      </div>
+
+      <div class="focus-card">
+        <h3>Creative Operations & Knowledge Systems</h3>
+        <p>
+          Streamlining creative workflows, content libraries, and process documentation.
+          Building systems and playbooks that help teams work smarter, not harder.
+        </p>
+      </div>
+    </div>
+
+    <p class="section-note">
+      Need a combination of these? Most projects blend UX, learning, and creative systems together.
+      I’m happy to tailor a consulting scope to your needs.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+     SERVICES (quick highlights)
+     ========================= -->
+<div class="services reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-bottom:48px;text-align:center">
+  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
+     <img src="ux.png" alt="UX/UI Design example" class="service-icon">
+     <h4 style="color:var(--navy);margin-bottom:8px;">UX/UI Design</h4>
+    <p style="color:var(--muted);font-size:15px;">Wireframes, prototypes, and design systems that make complexity feel effortless.</p>
+  </div>
+  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
+     <img src="elearning.png" alt="eLearning project example" class="service-icon">
+     <h4 style="color:var(--navy);margin-bottom:8px;">eLearning Development</h4>
+    <p style="color:var(--muted);font-size:15px;">Storyline & Rise systems built for accessibility, scalability, and engagement.</p>
+  </div>
+  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
+    <img src="taxonomy.png" alt="Creative Operations example" class="service-icon">
+    <h4 style="color:var(--navy);margin-bottom:8px;">Creative Operations</h4>
+    <p style="color:var(--muted);font-size:15px;">Taxonomies, content workflows, and process design for frictionless teams.</p>
+  </div>
+  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
+    <img src="montage.png" alt="Video and Motion project" class="service-icon">
+    <h4 style="color:var(--navy);margin-bottom:8px;">Video & Motion</h4>
+    <p style="color:var(--muted);font-size:15px;">Narrative-driven video, motion graphics, and visuals that make learning cinematic.</p>
+  </div>
+</div>
+
+    <h3 class="reveal">Selected Work</h3>
+
+    <div class="controls" id="filters" role="tablist" aria-label="Filter projects by type">
+      <button class="pill" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="pill" data-filter="uxui" role="tab">UX/UI</button>
+      <button class="pill" data-filter="elearning" role="tab">eLearning</button>
+      <button class="pill" data-filter="ops" role="tab">Creative Ops</button>
+      <button class="pill" data-filter="video" role="tab">Video</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <article class="tile reveal" data-tags="uxui elearning video" data-id="msft">
+        <img class="thumb" loading="lazy" src="./microsoft-copilot-guide.jpg" alt="Microsoft chat-based simulation prototype" />
+        <div class="meta">
+          <div class="caps">UX/UI · Prototype</div>
+          <div class="title">Microsoft — Executive Chat Simulation</div>
+          <p class="desc">Created a DEI-driven, mobile-first prototype with branching paths and custom JS which was showcased to the Chief Diversity Officer in advancing a new CoPilot learning initiative.</p>
+          <a href="#" class="btn" data-open="msft">View case</a>
+        </div>
+      </article>
+
+      <article class="tile reveal" data-tags="ops elearning" data-id="leidos">
+        <img class="thumb" loading="lazy" src="./leidos.jpg" alt="Leidos employees in training" />
+        <div class="meta">
+          <div class="caps">Accessibility · Design Systems</div>
+          <div class="title">Leidos — Accessibility Training & Reference</div>
+          <p class="desc">Institutionalized accessibility across Leidos' training department: created Leidos’ first practical 508 training program and developer reference suite.</p>
+          <a href="#" class="btn" data-open="leidos">View case</a>
+        </div>
+      </article>
+
+      <article class="tile reveal" data-tags="elearning uxui" data-id="faa">
+        <img class="thumb" loading="lazy" src="./faa.png" alt="FAA air traffic control tower personnel" />
+        <div class="meta">
+          <div class="caps">eLearning · Templates</div>
+          <div class="title">Federal Aviation Administration — Courseware Redesign</div>
+          <p class="desc">Delivered FAA’s highest-rated training by rebuilding legacy modules with reusable templates and modern Storyline design.</p>
+          <a href="#" class="btn" data-open="faa">View case</a>
+        </div>
+      </article>
+
+      <article class="tile reveal" data-tags="ops" data-id="paylocity">
+        <img class="thumb" loading="lazy" src="./paylocity.png" alt="Paylocity training catalog" />
+        <div class="meta">
+          <div class="caps">Content Systems · KM</div>
+          <div class="title">Paylocity — Knowledge Management Overhaul</div>
+          <p class="desc">Cut content duplication and update time across 700+ courses by launching Paylocity’s first unified eLearning taxonomy.</p>
+          <a href="#" class="btn" data-open="paylocity">View case</a>
+        </div>
+      </article>
+
+      <article class="tile reveal" data-tags="video elearning" data-id="relias">
+        <img class="thumb" loading="lazy" src="./relias.png" alt="Relias virtual medical simulation" />
+        <div class="meta">
+          <div class="caps">Simulation · Video</div>
+          <div class="title">Relias — Clinician Scenarios & 360° Training</div>
+          <p class="desc">Produced emotionally intelligent simulations and videos that improved clinician engagement, empathy, and nurse certification success rates.</p>
+          <a href="#" class="btn" data-open="relias">View case</a>
+        </div>
+      </article>
+
+      <article class="tile reveal" data-tags="elearning uxui" data-id="dliflc">
+        <img class="thumb" loading="lazy" src="./dliflc.jpg" alt="DLIFLC linguistic training conference" />
+        <div class="meta">
+          <div class="caps">Gov · Multilingual</div>
+          <div class="title">DLIFLC — Secure Multilingual Courseware</div>
+          <p class="desc">Developed multilingual eLearning using Adobe Captivate for a secure government environment—combining UX clarity, linguistic precision, and cultural accuracy.</p>
+          <a href="#" class="btn" data-open="dliflc">View case</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- =========================
      RESUME (dark band)
@@ -845,106 +1054,6 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <img class="gold-rings" src="gold_rings_background_animated_transparent.svg" alt="gold rings" />
   </div>
   <div class="container">
-
-<!-- =========================
-     SERVICES (quick highlights)
-     ========================= -->
-<div class="services reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-bottom:48px;text-align:center">
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
-     <img src="ux.png" alt="UX/UI Design example" class="service-icon">
-     <h4 style="color:var(--navy);margin-bottom:8px;">UX/UI Design</h4>
-    <p style="color:var(--muted);font-size:15px;">Wireframes, prototypes, and design systems that make complexity feel effortless.</p>
-  </div>
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
-     <img src="elearning.png" alt="eLearning project example" class="service-icon">
-     <h4 style="color:var(--navy);margin-bottom:8px;">eLearning Development</h4>
-    <p style="color:var(--muted);font-size:15px;">Storyline & Rise systems built for accessibility, scalability, and engagement.</p>
-  </div>
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
-    <img src="taxonomy.png" alt="Creative Operations example" class="service-icon">
-    <h4 style="color:var(--navy);margin-bottom:8px;">Creative Operations</h4>
-    <p style="color:var(--muted);font-size:15px;">Taxonomies, content workflows, and process design for frictionless teams.</p>
-  </div>
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
-    <img src="montage.png" alt="Video and Motion project" class="service-icon">
-    <h4 style="color:var(--navy);margin-bottom:8px;">Video & Motion</h4>
-    <p style="color:var(--muted);font-size:15px;">Narrative-driven video, motion graphics, and visuals that make learning cinematic.</p>
-  </div>
-</div>
-
-    <h3 class="reveal">Selected Work</h3>
-
-    <div class="controls" id="filters" role="tablist" aria-label="Filter projects by type">
-      <button class="pill" data-filter="all" role="tab" aria-selected="true">All</button>
-      <button class="pill" data-filter="uxui" role="tab">UX/UI</button>
-      <button class="pill" data-filter="elearning" role="tab">eLearning</button>
-      <button class="pill" data-filter="ops" role="tab">Creative Ops</button>
-      <button class="pill" data-filter="video" role="tab">Video</button>
-    </div>
-
-    <div class="grid" id="grid">
-      <article class="tile reveal" data-tags="uxui elearning video" data-id="msft">
-        <img class="thumb" loading="lazy" src="./microsoft-copilot-guide.jpg" alt="Microsoft chat-based simulation prototype" />
-        <div class="meta">
-          <div class="caps">UX/UI · Prototype</div>
-          <div class="title">Microsoft — Executive Chat Simulation</div>
-          <p class="desc">Created a DEI-driven, mobile-first prototype with branching paths and custom JS which was showcased to the Chief Diversity Officer in advancing a new CoPilot learning initiative.</p>
-          <a href="#" class="btn" data-open="msft">View case</a>
-        </div>
-      </article>
-
-      <article class="tile reveal" data-tags="ops elearning" data-id="leidos">
-        <img class="thumb" loading="lazy" src="./leidos.jpg" alt="Leidos employees in training" />
-        <div class="meta">
-          <div class="caps">Accessibility · Design Systems</div>
-          <div class="title">Leidos — Accessibility Training & Reference</div>
-          <p class="desc">Institutionalized accessibility across Leidos' training department: created Leidos’ first practical 508 training program and developer reference suite.</p>
-          <a href="#" class="btn" data-open="leidos">View case</a>
-        </div>
-      </article>
-
-      <article class="tile reveal" data-tags="elearning uxui" data-id="faa">
-        <img class="thumb" loading="lazy" src="./faa.png" alt="FAA air traffic control tower personnel" />
-        <div class="meta">
-          <div class="caps">eLearning · Templates</div>
-          <div class="title">Federal Aviation Administration — Courseware Redesign</div>
-          <p class="desc">Delivered FAA’s highest-rated training by rebuilding legacy modules with reusable templates and modern Storyline design.</p>
-          <a href="#" class="btn" data-open="faa">View case</a>
-        </div>
-      </article>
-
-      <article class="tile reveal" data-tags="ops" data-id="paylocity">
-        <img class="thumb" loading="lazy" src="./paylocity.png" alt="Paylocity training catalog" />
-        <div class="meta">
-          <div class="caps">Content Systems · KM</div>
-          <div class="title">Paylocity — Knowledge Management Overhaul</div>
-          <p class="desc">Cut content duplication and update time across 700+ courses by launching Paylocity’s first unified eLearning taxonomy.</p>
-          <a href="#" class="btn" data-open="paylocity">View case</a>
-        </div>
-      </article>
-
-      <article class="tile reveal" data-tags="video elearning" data-id="relias">
-        <img class="thumb" loading="lazy" src="./relias.png" alt="Relias virtual medical simulation" />
-        <div class="meta">
-          <div class="caps">Simulation · Video</div>
-          <div class="title">Relias — Clinician Scenarios & 360° Training</div>
-          <p class="desc">Produced emotionally intelligent simulations and videos that improved clinician engagement, empathy, and nurse certification success rates.</p>
-          <a href="#" class="btn" data-open="relias">View case</a>
-        </div>
-      </article>
-
-      <article class="tile reveal" data-tags="elearning uxui" data-id="dliflc">
-        <img class="thumb" loading="lazy" src="./dliflc.jpg" alt="DLIFLC linguistic training conference" />
-        <div class="meta">
-          <div class="caps">Gov · Multilingual</div>
-          <div class="title">DLIFLC — Secure Multilingual Courseware</div>
-          <p class="desc">Developed multilingual eLearning using Adobe Captivate for a secure government environment—combining UX clarity, linguistic precision, and cultural accuracy.</p>
-          <a href="#" class="btn" data-open="dliflc">View case</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- =========================
      ABOUT (navy)

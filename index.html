@@ -844,45 +844,80 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   <div class="container">
 
 <!-- =========================
-     SERVICES (consulting focus)
+     SERVICES (consulting focus + deliverables)
      ========================= -->
-         <h2 class="section-title">Services</h2>
-    <p class="section-intro">
-      I help organizations simplify complex learning, design, and creative operations through structured systems, accessible design, and actionable strategy. I offer the following services. Most projects blend UX, learning, and creative systems together and I’m happy to tailor a consulting scope to your needs.
-    </p>
-<div class="services reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-bottom:48px;text-align:center">
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
-    <img src="ux.png" alt="UX Strategy example" class="service-icon">
-    <h4 style="color:var(--navy);margin-bottom:8px;">UX & Learning Systems</h4>
+<h2 class="section-title">Services</h2>
+<p class="section-intro" style="max-width:70ch;margin:0 auto 36px;text-align:center;color:var(--muted);">
+I help organizations simplify complexity by building learning systems, UX frameworks, and creative workflows that make content scalable, accessible, and human. Below are the four areas where I bring structure, strategy, and creative clarity.
+</p>
+
+<div class="services reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-bottom:48px;text-align:center">
+
+  <!-- UX Consulting -->
+  <div class="card" style="background:rgba(255,255,255,0.9);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
+    <img src="ux.png" alt="UX Consulting" class="service-icon">
+    <h4 style="color:var(--navy);margin-bottom:8px;">UX Consulting</h4>
     <p style="color:var(--muted);font-size:15px;">
-      Auditing and optimizing user experiences and learning flows for clarity, accessibility, and scalability. Includes prototypes, templates, and design system documentation.
+      Translating abstract goals into user-centered, accessible experiences that scale across products and learning platforms.
     </p>
+    <ul style="text-align:left;color:var(--muted);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+      <li>UX audits & usability reviews</li>
+      <li>Wireframes, prototypes, and design systems</li>
+      <li>Accessibility audits (WCAG/508)</li>
+      <li>Figma component libraries & documentation</li>
+    </ul>
   </div>
 
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
-    <img src="elearning.png" alt="Learning Design project example" class="service-icon">
-    <h4 style="color:var(--navy);margin-bottom:8px;">eLearning Design & Modernization</h4>
+  <!-- eLearning Consulting -->
+  <div class="card" style="background:rgba(255,255,255,0.9);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
+    <img src="elearning.png" alt="eLearning Consulting" class="service-icon">
+    <h4 style="color:var(--navy);margin-bottom:8px;">eLearning Systems & Design</h4>
     <p style="color:var(--muted);font-size:15px;">
-       Transforming legacy training into interactive, modern Storyline or Rise modules. Creating reusable templates and frameworks that make future builds faster and more consistent.
+      Building modular, modern, and accessible eLearning ecosystems that improve engagement and reduce production time.
     </p>
+    <ul style="text-align:left;color:var(--muted);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+      <li>Legacy course modernization (Storyline, Rise, Captivate)</li>
+      <li>Reusable templates and style frameworks</li>
+      <li>SCORM/xAPI packaging and LMS consulting</li>
+      <li>Accessibility & engagement audits</li>
+    </ul>
   </div>
 
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
+  <!-- Creative Operations -->
+  <div class="card" style="background:rgba(255,255,255,0.9);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
     <img src="taxonomy.png" alt="Creative Operations Consulting" class="service-icon">
-    <h4 style="color:var(--navy);margin-bottom:8px;">Creative Operations & Knowledge Systems</h4>
+    <h4 style="color:var(--navy);margin-bottom:8px;">Creative Operations Consulting</h4>
     <p style="color:var(--muted);font-size:15px;">
-      Streamlining creative workflows, content libraries, and process documentation. Building systems and playbooks that help teams work smarter, not harder.
+      Turning disorganized workflows into structured creative systems that improve speed, quality, and collaboration.
     </p>
+    <ul style="text-align:left;color:var(--muted);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+      <li>Workflow mapping & process design</li>
+      <li>Content taxonomy & metadata systems</li>
+      <li>Team playbooks & SOP development</li>
+      <li>Knowledge management frameworks</li>
+    </ul>
   </div>
 
-  <div class="card" style="background:rgba(255,255,255,0.85);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)">
-    <img src="montage.png" alt="Learning Media Production" class="service-icon">
-    <h4 style="color:var(--navy);margin-bottom:8px;">Media & Motion Design</h4>
+  <!-- Media & Motion -->
+  <div class="card" style="background:rgba(255,255,255,0.9);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
+    <img src="montage.png" alt="Media & Motion Design" class="service-icon">
+    <h4 style="color:var(--navy);margin-bottom:8px;">Learning Media & Motion Design</h4>
     <p style="color:var(--muted);font-size:15px;">
-      Creating narrative-driven visuals, animation, and media assets that bring clarity, emotion, and accessibility.
+      Creating narrative-driven visuals and motion assets that make learning and UX experiences memorable and human.
     </p>
+    <ul style="text-align:left;color:var(--muted);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+      <li>Instructional video & explainer production</li>
+      <li>Animated prototypes & motion demos</li>
+      <li>Storyboards, scripts, & visual direction</li>
+      <li>Accessible subtitles & localization guidance</li>
+    </ul>
   </div>
 </div>
+
+<p style="text-align:center;color:var(--muted);max-width:70ch;margin:0 auto;">
+You don’t just get deliverables — you get clarity, documentation, and systems your team can maintain. I design the structure, create the assets, and leave you with the tools to scale them confidently.
+</p>
+
 
     <h3 class="reveal">Selected Work</h3>
 

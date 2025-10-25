@@ -248,72 +248,102 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   box-shadow: 0 12px 28px rgba(0,0,0,0.45);
 }
 
-   /* =========================
-   CONSULTING FOCUS SECTION
-========================= */
+/* =========================
+   CONSULTING FOCUS SECTION — UPGRADED
+   ========================= */
 .consulting-focus {
-  background-color: #fefaf6; /* light cream background */
-  padding: 4rem 1rem;
+  background: var(--panel);
+  padding: 6rem 1rem;
+  position: relative;
   text-align: center;
+  overflow: hidden;
+}
+
+/* Subtle ring background (optional visual cohesion) */
+.consulting-focus::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 40% 20%,
+    rgba(253, 169, 79, 0.08) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.consulting-focus .container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .consulting-focus .section-title {
   font-size: 2rem;
-  color: #0c2238; /* deep navy */
+  color: var(--navy);
   margin-bottom: 0.75rem;
   font-weight: 700;
 }
 
 .consulting-focus .section-intro {
-  max-width: 750px;
-  margin: 0 auto 2.5rem auto;
-  color: #333;
+  max-width: 720px;
+  margin: 0 auto 3rem auto;
+  color: var(--muted);
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .focus-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-  max-width: 1100px;
-  margin: 0 auto 2.5rem auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
+/* Polished dark-glass cards */
 .focus-card {
-  background-color: #0c2238;
-  color: #fff;
-  padding: 2rem 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(16, 18, 22, 0.9);
+  color: #fefefa;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  padding: 2rem 1.75rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .focus-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 215, 0, 0.4);
 }
 
 .focus-card h3 {
-  color: #fbb040; /* gold accent */
-  font-size: 1.3rem;
+  color: var(--gold);
+  font-size: 1.35rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
 }
 
 .focus-card p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #f8f8f8;
+  color: #f9f9f9;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.95;
 }
 
 .consulting-focus .section-note {
-  color: #333;
+  color: var(--muted);
   font-size: 1rem;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
+  opacity: 0.9;
 }
+
 
 
 /* =========================
@@ -447,55 +477,6 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 .resume-download {
   text-align: center;
   margin-top: 32px;
-}
-
-   /* =========================
-   Service Cards
-   ========================= */
-   .service-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  padding: 24px 18px;
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.work-thumb {
-  width: 100%;
-  max-width: 140px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.service-card:hover .work-thumb {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-.service-icon {
-  width: 100%;
-  max-width: 110px; /* smaller visual footprint */
-  height: auto;
-  display: block;
-  margin: 0 auto 14px auto; /* tighter spacing below */
-  border-radius: 10px;
-  object-fit: contain;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.service-icon:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
 /* =========================
@@ -772,7 +753,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
    <!-- =========================
      CONSULTING FOCUS SECTION
 ========================= -->
-<section class="consulting-focus" id="consulting-focus">
+<section class="consulting-focus cream" id="consulting-focus">
   <div class="container">
     <h2 class="section-title">Consulting Focus</h2>
     <p class="section-intro">

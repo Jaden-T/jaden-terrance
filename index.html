@@ -249,47 +249,25 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 }
 
 /* =========================
-   CONSULTING FOCUS SECTION — UPGRADED
+   CONSULTING FOCUS — LIGHT THEME
    ========================= */
 .consulting-focus {
   background: var(--panel);
-  padding: 6rem 1rem;
-  position: relative;
+  padding: 6rem 1rem 7rem;
   text-align: center;
-  overflow: hidden;
-}
-
-/* Subtle ring background (optional visual cohesion) */
-.consulting-focus::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 40% 20%,
-    rgba(253, 169, 79, 0.08) 0%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-.consulting-focus .container {
   position: relative;
-  z-index: 1;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .consulting-focus .section-title {
   font-size: 2rem;
   color: var(--navy);
-  margin-bottom: 0.75rem;
   font-weight: 700;
+  margin-bottom: 0.75rem;
 }
 
 .consulting-focus .section-intro {
   max-width: 720px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 3rem;
   color: var(--muted);
   font-size: 1.1rem;
   line-height: 1.7;
@@ -299,49 +277,73 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 3rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
 }
 
-/* Polished dark-glass cards */
+/* Light, elegant cards */
 .focus-card {
-  background: rgba(16, 18, 22, 0.9);
-  color: #fefefa;
-  border-radius: var(--radius);
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  padding: 2rem 1.75rem;
+  background: #fff;
+  border-radius: 18px;
+  padding: 2.25rem 1.75rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 }
 
 .focus-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-  border-color: rgba(255, 215, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
 .focus-card h3 {
-  color: var(--gold);
-  font-size: 1.35rem;
+  color: var(--navy);
+  font-size: 1.3rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
 }
 
 .focus-card p {
-  color: #f9f9f9;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  opacity: 0.95;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
 }
 
 .consulting-focus .section-note {
   color: var(--muted);
   font-size: 1rem;
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto;
   line-height: 1.6;
   opacity: 0.9;
+}
+
+.consulting-focus .section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 0.5rem auto 0;
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+   .consulting-focus {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make sure the gold rings sit behind the cards */
+.consulting-focus .ring-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.consulting-focus .container {
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -753,7 +755,11 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
    <!-- =========================
      CONSULTING FOCUS SECTION
 ========================= -->
-<section class="consulting-focus cream" id="consulting-focus">
+<section class="consulting-focus cream full-bleed" id="consulting-focus">
+  <div class="ring-overlay">
+    <img class="gold-rings" src="gold_rings_background_animated_transparent.svg" alt="gold rings" />
+  </div>
+
   <div class="container">
     <h2 class="section-title">Consulting Focus</h2>
     <p class="section-intro">
@@ -764,35 +770,24 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <div class="focus-grid">
       <div class="focus-card">
         <h3>UX & Learning Systems</h3>
-        <p>
-          Auditing and optimizing user experiences and learning flows for clarity, accessibility, and scalability.
-          Includes prototypes, templates, and design system documentation.
-        </p>
+        <p>Auditing and optimizing user experiences and learning flows for clarity, accessibility, and scalability.</p>
       </div>
-
       <div class="focus-card">
         <h3>eLearning Design & Modernization</h3>
-        <p>
-          Transforming legacy training into interactive, modern Storyline or Rise modules.
-          Creating reusable templates and frameworks that make future builds faster and more consistent.
-        </p>
+        <p>Transforming legacy training into interactive, modern modules using Articulate Storyline or Rise.</p>
       </div>
-
       <div class="focus-card">
         <h3>Creative Operations & Knowledge Systems</h3>
-        <p>
-          Streamlining creative workflows, content libraries, and process documentation.
-          Building systems and playbooks that help teams work smarter, not harder.
-        </p>
+        <p>Streamlining creative workflows, content libraries, and documentation for scalable team growth.</p>
       </div>
     </div>
 
     <p class="section-note">
       Need a combination of these? Most projects blend UX, learning, and creative systems together.
-      I’m happy to tailor a consulting scope to your needs.
     </p>
   </div>
 </section>
+
 
 
 

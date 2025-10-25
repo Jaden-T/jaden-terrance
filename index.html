@@ -342,7 +342,18 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   opacity: 0.85;
 }
 
+.ring-overlay img {
+  animation: slowSpin 60s linear infinite;
+  transform-origin: center;
+  opacity: 0.22;
+}
 
+@keyframes slowSpin {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1); }
+}
+
+   
 /* =========================
    Resume (dark cards, updated to match About)
    ========================= */
@@ -747,61 +758,85 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   </div>
 </section>
 
-   <!-- =========================
-     CONSULTING FOCUS SECTION
-========================= -->
-<section class="consulting-focus inkblock full-bleed" id="consulting-focus">
+<!-- =========================
+     CONSULTING FOCUS — SLATE THEME
+     ========================= -->
+<section class="consulting-focus">
+  <!-- Gold ring overlay (background effect) -->
   <div class="ring-overlay">
-    <img class="gold-rings" src="gold_rings_background_animated_transparent.svg" alt="gold rings" />
+    <img src="rings-gold.svg" alt="" 
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
   </div>
 
+  <!-- Content container -->
   <div class="container">
-    <h2 class="section-title">Consulting Services</h2>
+    <h2 class="section-title">Consulting Focus</h2>
     <p class="section-intro">
-      I help organizations simplify complex learning, design, and creative operations through
-      structured systems, accessible design, and actionable strategy.
+      I help organizations simplify complexity by building learning systems, UX frameworks, 
+      and creative workflows that make content scalable, accessible, and human.
+      These are the four areas where I bring structure, strategy, and creative clarity.
     </p>
 
     <div class="focus-grid">
+      <!-- Card 1 -->
       <div class="focus-card">
-        <h3>UX & Learning Systems</h3>
+        <h3>UX Consulting</h3>
         <p>
-          Audit and optimize user experiences and learning flows for clarity, accessibility, and scalability.
-                 <ul style="text-align:left;color:var(--cream);font-size:14px;line-height:1.6;list-style:disc inside;">
-        <li>UX audits & usability reviews</li>
-        <li>Wireframes, prototypes, & design systems</li>
-        <li>Accessibility audits (WCAG/508)</li>
-        <li>Figma component libraries & documentation</li>
+          Translating abstract goals into intuitive, accessible experiences that scale across products and learning environments.
         </p>
+        <ul style="text-align:left;color:rgba(255,255,255,0.85);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+          <li>UX audits & usability reviews</li>
+          <li>Wireframes, prototypes, & design systems</li>
+          <li>Accessibility audits (WCAG/508)</li>
+          <li>Figma component libraries & documentation</li>
+        </ul>
       </div>
 
+      <!-- Card 2 -->
       <div class="focus-card">
-        <h3>eLearning Design & Modernization</h3>
+        <h3>eLearning Systems & Design</h3>
         <p>
-          Transform legacy training into interactive, modern Storyline or Rise modules for consistency and engagement.
-                 <ul style="text-align:left;color:var(--cream);font-size:14px;line-height:1.6;list-style:disc inside;">
-        <li>Legacy course modernization (Storyline, Rise, Captivate)</li>
-        <li>Reusable templates & framework creation</li>
-        <li>SCORM/xAPI integration & LMS consulting</li>
-        <li>Accessibility & engagement audits</li>
+          Modernizing and optimizing eLearning ecosystems for engagement, scalability, and accessibility.
         </p>
+        <ul style="text-align:left;color:rgba(255,255,255,0.85);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+          <li>Legacy course modernization (Storyline, Rise, Captivate)</li>
+          <li>Reusable templates & framework creation</li>
+          <li>SCORM/xAPI integration & LMS consulting</li>
+          <li>Accessibility & engagement audits</li>
+        </ul>
       </div>
 
+      <!-- Card 3 -->
       <div class="focus-card">
-        <h3>Creative Operations & Knowledge Systems</h3>
+        <h3>Creative Operations Consulting</h3>
         <p>
-          Streamline creative workflows, content libraries, and documentation for more efficient, scalable teamwork.
-                 <ul style="text-align:left;color:var(--cream);font-size:14px;line-height:1.6;list-style:disc inside;">
-        <li>Workflow mapping & process optimization</li>
-        <li>Content taxonomy & metadata design</li>
-        <li>Team playbooks & SOP development</li>
-        <li>Knowledge management frameworks</li>
+          Streamlining creative workflows and building operational systems that let teams work smarter, not harder.
         </p>
+        <ul style="text-align:left;color:rgba(255,255,255,0.85);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+          <li>Workflow mapping & process optimization</li>
+          <li>Content taxonomy & metadata design</li>
+          <li>Team playbooks & SOP development</li>
+          <li>Knowledge management frameworks</li>
+        </ul>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="focus-card">
+        <h3>Learning Media & Motion Design</h3>
+        <p>
+          Producing narrative-driven visuals, prototypes, and motion that make complex ideas feel simple, clear, and human.
+        </p>
+        <ul style="text-align:left;color:rgba(255,255,255,0.85);font-size:14px;line-height:1.6;list-style:disc inside;margin-top:10px;">
+          <li>Instructional & explainer video production</li>
+          <li>Animated prototypes & motion demos</li>
+          <li>Storyboards, scripts, & visual direction</li>
+          <li>Accessible subtitles & localization guidance</li>
+        </ul>
       </div>
     </div>
 
     <p class="section-note">
-      Most projects blend UX, learning, and creative systems together — we’ll tailor your scope to the right balance.
+      I design the structure, create the assets, and leave you with the tools to scale them confidently with clarity, documentation, and systems your team can maintain. 
     </p>
   </div>
 </section>

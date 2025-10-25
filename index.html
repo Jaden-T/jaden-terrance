@@ -248,6 +248,73 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   box-shadow: 0 12px 28px rgba(0,0,0,0.45);
 }
 
+   /* =========================
+   CONSULTING FOCUS SECTION
+========================= */
+.consulting-focus {
+  background-color: #fefaf6; /* light cream background */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.consulting-focus .section-title {
+  font-size: 2rem;
+  color: #0c2238; /* deep navy */
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.consulting-focus .section-intro {
+  max-width: 750px;
+  margin: 0 auto 2.5rem auto;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.focus-card {
+  background-color: #0c2238;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.focus-card h3 {
+  color: #fbb040; /* gold accent */
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.focus-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f8f8f8;
+}
+
+.consulting-focus .section-note {
+  color: #333;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 
 /* =========================
    Resume (dark cards, updated to match About)

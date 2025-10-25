@@ -331,6 +331,18 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   color: rgba(255,255,255,0.88);
   font-size: 1.05rem;
   line-height: 1.7;
+  text-align: left;                  /* unify paragraph and list alignment */
+  margin-bottom: 0.75rem;
+}
+   .focus-card ul {
+  margin: 0.75rem 0 0 1.25rem;       /* balanced left indent */
+  padding: 0;
+  list-style: disc;
+}
+
+.focus-card li {
+  margin-bottom: 0.4rem;             /* breathing room between bullets */
+  line-height: 1.6;
 }
 
 .consulting-focus .section-note {
@@ -766,37 +778,37 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
       <div class="focus-card">
         <h3>UX & Learning Systems</h3>
         <p>
-          Audit and optimize user experiences and learning flows for clarity, accessibility, and scalability.
+          Audit and optimize user experiences and learning flows for clarity, accessibility, and scalability.        </p>
                  <ul style="text-align:left;color:var(--cream);font-size:14px;line-height:1.6;list-style:disc inside;">
         <li>UX audits & usability reviews</li>
         <li>Wireframes, prototypes, & design systems</li>
         <li>Accessibility audits (WCAG/508)</li>
         <li>Figma component libraries & documentation</li>
-        </p>
+                 </ul>
       </div>
 
       <div class="focus-card">
         <h3>eLearning Design & Modernization</h3>
         <p>
-          Transform legacy training into interactive, modern Storyline or Rise modules for consistency and engagement.
+          Transform legacy training into interactive, modern Storyline or Rise modules for consistency and engagement.</p>.
                  <ul style="text-align:left;color:var(--cream);font-size:14px;line-height:1.6;list-style:disc inside;">
         <li>Legacy course modernization (Storyline, Rise, Captivate)</li>
         <li>Reusable templates & framework creation</li>
         <li>SCORM/xAPI integration & LMS consulting</li>
         <li>Accessibility & engagement audits</li>
-        </p>
+        </ul>
       </div>
 
       <div class="focus-card">
         <h3>Creative Operations & Knowledge Systems</h3>
         <p>
-          Streamline creative workflows, content libraries, and documentation for more efficient, scalable teamwork.
+          Streamline creative workflows, content libraries, and documentation for more efficient, scalable teamwork. </p>
                  <ul style="text-align:left;color:var(--cream);font-size:14px;line-height:1.6;list-style:disc inside;">
         <li>Workflow mapping & process optimization</li>
         <li>Content taxonomy & metadata design</li>
         <li>Team playbooks & SOP development</li>
         <li>Knowledge management frameworks</li>
-        </p>
+        </ul>
       </div>
     </div>
 

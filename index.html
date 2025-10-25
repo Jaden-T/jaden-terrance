@@ -260,15 +260,15 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   text-align: center;
 }
 
+/* gold rings background behind content */
 .consulting-focus .ring-overlay {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   opacity: 0.4;               /* stronger visibility */
-  mix-blend-mode: screen;     /* better for dark slate backgrounds */
+  mix-blend-mode: screen;     /* better blending for dark slate backgrounds */
 }
-
 
 .consulting-focus .container {
   position: relative;
@@ -294,7 +294,7 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   line-height: 1.7;
 }
 
-/* Grid */
+/* Grid layout for cards */
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -312,6 +312,7 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: all 0.35s ease;
+  text-align: left; /* ensures lists are aligned cleanly */
 }
 
 .focus-card:hover {
@@ -325,28 +326,39 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   font-size: 1.35rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .focus-card p {
   color: rgba(255,255,255,0.88);
   font-size: 1.02rem;
   line-height: 1.7;
-  text-align: center;                  /* unify paragraph and list alignment */
   margin-bottom: 0.75rem;
 }
 
+/* Perfect bullet alignment (grid-based) */
 .focus-card ul {
-  margin: 0.75rem 0 0 0;
-  padding-left: 1.6em;             /* small consistent offset for bullets */
-  list-style-type: disc;
-  list-style-position: outside;    /* keeps bullets outside the text block */
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
 }
 
 .focus-card li {
-  margin-bottom: 0.45rem;
-  padding-left: 0;
-  text-indent: -0.6em;             /* pulls wrapped text back into alignment */
+  display: grid;
+  grid-template-columns: 1.05em 1fr; /* bullet column + text column */
+  column-gap: 0.55em;
+  align-items: start;
   line-height: 1.6;
+  margin: 0.45rem 0;
+}
+
+/* Gold bullets for brand consistency */
+.focus-card li::before {
+  content: "•";
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1;
+  transform: translateY(0.15em);
 }
 
 .consulting-focus .section-note {

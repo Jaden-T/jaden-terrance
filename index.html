@@ -249,26 +249,44 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 }
 
 /* =========================
-   CONSULTING FOCUS — LIGHT THEME
+   CONSULTING FOCUS — DARK THEME
    ========================= */
 .consulting-focus {
-  background: var(--panel);
-  padding: 6rem 1rem 7rem;
-  text-align: center;
+  background: var(--ink);
   position: relative;
+  overflow: hidden;
+  color: #fefefa;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+/* gold rings background behind content */
+.consulting-focus .ring-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.consulting-focus .container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .consulting-focus .section-title {
   font-size: 2rem;
-  color: var(--navy);
+  color: #fefefa;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
 .consulting-focus .section-intro {
   max-width: 720px;
-  margin: 0 auto 3rem;
-  color: var(--muted);
+  margin: 0 auto 3rem auto;
+  color: rgba(255,255,255,0.9);
   font-size: 1.1rem;
   line-height: 1.7;
 }
@@ -277,74 +295,49 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto 3rem;
+  margin-bottom: 3rem;
 }
 
-/* Light, elegant cards */
+/* lighter glass cards for contrast */
 .focus-card {
-  background: #fff;
-  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
   padding: 2.25rem 1.75rem;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
 
 .focus-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-color: rgba(255,215,0,0.45);
+  box-shadow: 0 12px 28px rgba(255,215,0,0.15);
 }
 
 .focus-card h3 {
-  color: var(--navy);
-  font-size: 1.3rem;
+  color: var(--gold);
+  font-size: 1.35rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
 }
 
 .focus-card p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
+  color: rgba(255,255,255,0.9);
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 .consulting-focus .section-note {
-  color: var(--muted);
+  color: rgba(255,255,255,0.8);
   font-size: 1rem;
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
-.consulting-focus .section-title::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin: 0.5rem auto 0;
-  background: var(--gold);
-  border-radius: 3px;
-}
-
-   .consulting-focus {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Make sure the gold rings sit behind the cards */
-.consulting-focus .ring-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.consulting-focus .container {
-  position: relative;
-  z-index: 1;
-}
 
 
 
@@ -755,7 +748,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
    <!-- =========================
      CONSULTING FOCUS SECTION
 ========================= -->
-<section class="consulting-focus cream full-bleed" id="consulting-focus">
+<section class="consulting-focus inkblock full-bleed" id="consulting-focus">
   <div class="ring-overlay">
     <img class="gold-rings" src="gold_rings_background_animated_transparent.svg" alt="gold rings" />
   </div>
@@ -770,25 +763,31 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <div class="focus-grid">
       <div class="focus-card">
         <h3>UX & Learning Systems</h3>
-        <p>Auditing and optimizing user experiences and learning flows for clarity, accessibility, and scalability.</p>
+        <p>
+          Auditing and optimizing user experiences and learning flows for clarity, accessibility, and scalability.
+        </p>
       </div>
+
       <div class="focus-card">
         <h3>eLearning Design & Modernization</h3>
-        <p>Transforming legacy training into interactive, modern modules using Articulate Storyline or Rise.</p>
+        <p>
+          Transforming legacy training into interactive, modern Storyline or Rise modules for consistency and engagement.
+        </p>
       </div>
+
       <div class="focus-card">
         <h3>Creative Operations & Knowledge Systems</h3>
-        <p>Streamlining creative workflows, content libraries, and documentation for scalable team growth.</p>
+        <p>
+          Streamlining creative workflows, content libraries, and documentation for more efficient, scalable teamwork.
+        </p>
       </div>
     </div>
 
     <p class="section-note">
-      Need a combination of these? Most projects blend UX, learning, and creative systems together.
+      Most projects blend UX, learning, and creative systems together — we’ll tailor your scope to the right balance.
     </p>
   </div>
 </section>
-
-
 
 
 <!-- =========================

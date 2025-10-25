@@ -329,22 +329,23 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 
 .focus-card p {
   color: rgba(255,255,255,0.88);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.7;
-  text-align: left;                  /* unify paragraph and list alignment */
+  text-align: center;                  /* unify paragraph and list alignment */
   margin-bottom: 0.75rem;
 }
 
 .focus-card ul {
   margin: 0.75rem 0 0 0;
-  padding-left: 1.2rem;
-  list-style-position: outside;
+  padding-left: 1.6em;             /* small consistent offset for bullets */
+  list-style-type: disc;
+  list-style-position: outside;    /* keeps bullets outside the text block */
 }
 
 .focus-card li {
-  padding-left: 0.25rem;            /* a bit of breathing room between bullet and text */
-  text-indent: 0;                   /* prevents text from tucking under the bullet */
-  margin-bottom: 0.4rem;            /* nice vertical spacing */
+  margin-bottom: 0.45rem;
+  padding-left: 0;
+  text-indent: -0.6em;             /* pulls wrapped text back into alignment */
   line-height: 1.6;
 }
 

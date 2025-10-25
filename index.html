@@ -535,12 +535,18 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
 .contact{display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
 .contact a {
-  padding:12px 14px;
-  border-radius:12px;
-  background: var(--gold);
-  color: var(--ink);           /* makes text black */
-  border: none;                /* removes white border */
-  font-weight:600;
+.resume .card {
+  background: rgba(0, 35, 49, 0.95); /* same deep navy as About */
+  color: #fefefa;
+  border: 1px solid rgba(255, 215, 0, 0.25); /* subtle gold tint */
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  padding: 28px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================

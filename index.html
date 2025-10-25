@@ -249,10 +249,10 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 }
 
 /* =========================
-   CONSULTING FOCUS — DARK THEME
+   CONSULTING FOCUS — SLATE THEME
    ========================= */
 .consulting-focus {
-  background: var(--ink);
+  background: linear-gradient(180deg, #2e3135 0%, #35383d 100%); /* deep slate gradient */
   position: relative;
   overflow: hidden;
   color: #fefefa;
@@ -266,7 +266,8 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.22;
+  mix-blend-mode: soft-light; /* blends the rings subtly into slate */
 }
 
 .consulting-focus .container {
@@ -276,11 +277,13 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   margin: 0 auto;
 }
 
+/* Typography */
 .consulting-focus .section-title {
   font-size: 2rem;
-  color: #fefefa;
+  color: var(--gold);
   font-weight: 700;
   margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
 }
 
 .consulting-focus .section-intro {
@@ -291,6 +294,7 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   line-height: 1.7;
 }
 
+/* Grid */
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -298,22 +302,22 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   margin-bottom: 3rem;
 }
 
-/* lighter glass cards for contrast */
+/* Cards — warm glass effect */
 .focus-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
   padding: 2.25rem 1.75rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.35s ease;
 }
 
 .focus-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255,215,0,0.45);
-  box-shadow: 0 12px 28px rgba(255,215,0,0.15);
+  transform: translateY(-6px);
+  border-color: rgba(255,215,0,0.4);
+  box-shadow: 0 12px 28px rgba(255,215,0,0.18);
 }
 
 .focus-card h3 {
@@ -324,21 +328,19 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 }
 
 .focus-card p {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.88);
   font-size: 1.05rem;
   line-height: 1.7;
 }
 
 .consulting-focus .section-note {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.85);
   font-size: 1rem;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
   opacity: 0.85;
 }
-
-
 
 
 /* =========================

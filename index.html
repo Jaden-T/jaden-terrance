@@ -334,14 +334,17 @@ nav{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
   text-align: center;                  /* unify paragraph and list alignment */
   margin-bottom: 0.75rem;
 }
+
    .focus-card ul {
-  margin: 0.75rem 0 0 1.25rem;       /* balanced left indent */
-  padding: 0;
-  list-style: disc;
+  margin: 0.75rem 0 0 0;           /* remove default browser margins */
+  padding-left: 1.5rem;             /* consistent indent for bullets */
+  list-style-position: outside;     /* ensures bullets sit *outside* text block */
 }
 
 .focus-card li {
-  margin-bottom: 0.4rem;             /* breathing room between bullets */
+  padding-left: 0.25rem;            /* a bit of breathing room between bullet and text */
+  text-indent: 0;                   /* prevents text from tucking under the bullet */
+  margin-bottom: 0.4rem;            /* nice vertical spacing */
   line-height: 1.6;
 }
 
